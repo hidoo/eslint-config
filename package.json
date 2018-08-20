@@ -29,5 +29,9 @@
     "eslint": "^5.3.0"
   },
   "author": "hidoo",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hidoo/eslint-config"
+  },
   "license": "MIT"
 }
