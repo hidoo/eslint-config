@@ -26,9 +26,9 @@
     "eslint-config"
   ],
   "devDependencies": {
-    "@commitlint/cli": "^7.5.2",
+    "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "^10.0.2",
     "conventional-changelog-cli": "^2.0.12",
     "eslint": "^5.16.0",
     "eslint-find-rules": "^3.3.1",
