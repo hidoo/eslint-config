@@ -27,7 +27,7 @@
   ],
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
-    "@commitlint/config-conventional": "^7.5.0",
+    "@commitlint/config-conventional": "^8.0.0",
     "babel-eslint": "^10.0.2",
     "conventional-changelog-cli": "^2.0.12",
     "eslint": "^5.16.0",
