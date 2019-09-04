@@ -1,0 +1,4 @@
+--require intelli-espower-loader
+--recursive
+--ui bdd
+--slow 0
