@@ -3,22 +3,24 @@
   "version": "0.1.4",
   "description": "Sharable eslint config for my projects.",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.10.0"
+  },
   "files": [
-    "lib/base.js",
-    "index.js",
-    "README.md"
+    "lib/",
+    "+babel.js",
+    "+mocha.js",
+    "+node.js",
+    "index.js"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "test": "npm-run-all -s test:*",
-    "test:lint": "eslint -c index.js .",
-    "test:unit": "cross-env NODE_ENV=test mocha",
-    "find-new-rules": "npm-run-all -s find-new-rules:*",
-    "find-new-rules:main": "eslint-find-rules --unused ./index.js",
-    "prepare": "npm-run-all -s find-new-rules test",
-    "version": "npm-run-all -s version:changelog version:commit",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env NODE_ENV=test mocha test/**/*.test.js",
+    "version": "npm-run-all -s test version:changelog version:commit",
     "version:changelog": "conventional-changelog -p angular -i ./CHANGELOG.md -s -r 0",
     "version:commit": "git add ./CHANGELOG.md"
   },
@@ -41,8 +43,7 @@
     "power-assert": "^1.6.1"
   },
   "peerDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.14.1"
+    "eslint": ">=6.0.0"
   },
   "husky": {
     "hooks": {
@@ -60,5 +61,13 @@
     "type": "git",
     "url": "https://github.com/hidoo/eslint-config"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "eslint-plugin-eslint-comments": "3.1.2",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsdoc": "15.9.1",
+    "eslint-plugin-mocha": "6.1.0",
+    "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-sort-class-members": "1.6.0"
+  }
 }

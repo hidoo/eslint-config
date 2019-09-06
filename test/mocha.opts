@@ -1,4 +1,5 @@
 --require intelli-espower-loader
 --recursive
 --ui bdd
+--timeout 4000
 --slow 0
