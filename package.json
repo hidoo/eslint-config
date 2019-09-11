@@ -3,22 +3,24 @@
   "version": "0.1.4",
   "description": "Sharable eslint config for my projects.",
   "main": "index.js",
+  "engines": {
+    "node": ">=8.10.0"
+  },
   "files": [
-    "lib/base.js",
-    "index.js",
-    "README.md"
+    "lib/",
+    "+babel.js",
+    "+mocha.js",
+    "+node.js",
+    "index.js"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
     "test": "npm-run-all -s test:*",
-    "test:validate": "node ./test/validate.js",
-    "test:lint": "eslint -c index.js .",
-    "find-new-rules": "npm-run-all -s find-new-rules:*",
-    "find-new-rules:main": "eslint-find-rules --unused ./index.js",
-    "prepare": "npm-run-all -s find-new-rules test",
-    "version": "npm-run-all -s version:changelog version:commit",
+    "test:lint": "eslint .",
+    "test:unit": "cross-env NODE_ENV=test mocha test/**/*.test.js",
+    "version": "npm-run-all -s test version:changelog version:commit",
     "version:changelog": "conventional-changelog -p angular -i ./CHANGELOG.md -s -r 0",
     "version:commit": "git add ./CHANGELOG.md"
   },
@@ -28,17 +30,19 @@
   "devDependencies": {
     "@commitlint/cli": "^8.0.0",
     "@commitlint/config-conventional": "^8.0.0",
-    "babel-eslint": "^10.0.2",
     "conventional-changelog-cli": "^2.0.21",
-    "eslint": "^5.16.0",
+    "cross-env": "^5.2.1",
+    "eslint": "^6.3.0",
     "eslint-find-rules": "^3.3.1",
     "husky": "^3.0.5",
+    "intelli-espower-loader": "^1.0.1",
     "lint-staged": "^9.2.5",
-    "npm-run-all": "^4.1.5"
+    "mocha": "^6.2.0",
+    "npm-run-all": "^4.1.5",
+    "power-assert": "^1.6.1"
   },
   "peerDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.14.1"
+    "eslint": ">=6.0.0"
   },
   "husky": {
     "hooks": {
@@ -56,5 +60,14 @@
     "type": "git",
     "url": "https://github.com/hidoo/eslint-config"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "babel-eslint": "10.0.3",
+    "eslint-plugin-eslint-comments": "3.1.2",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsdoc": "15.9.1",
+    "eslint-plugin-mocha": "6.1.0",
+    "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-sort-class-members": "1.6.0"
+  }
 }
