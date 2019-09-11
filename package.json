@@ -27,6 +27,15 @@
   "keywords": [
     "eslint-config"
   ],
+  "dependencies": {
+    "babel-eslint": "10.0.3",
+    "eslint-plugin-eslint-comments": "3.1.2",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jsdoc": "15.9.1",
+    "eslint-plugin-mocha": "6.1.0",
+    "eslint-plugin-node": "10.0.0",
+    "eslint-plugin-sort-class-members": "1.6.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^8.1.0",
     "@commitlint/config-conventional": "^8.1.0",
@@ -60,14 +69,5 @@
     "type": "git",
     "url": "https://github.com/hidoo/eslint-config"
   },
-  "license": "MIT",
-  "dependencies": {
-    "babel-eslint": "10.0.3",
-    "eslint-plugin-eslint-comments": "3.1.2",
-    "eslint-plugin-import": "2.18.2",
-    "eslint-plugin-jsdoc": "15.9.1",
-    "eslint-plugin-mocha": "6.1.0",
-    "eslint-plugin-node": "10.0.0",
-    "eslint-plugin-sort-class-members": "1.6.0"
-  }
+  "license": "MIT"
 }
