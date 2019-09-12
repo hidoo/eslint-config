@@ -1,6 +1,6 @@
 # @hidoo/eslint-config
 
-[![Build Status](https://travis-ci.org/hidoo/eslint-config.svg?branch=master)](https://travis-ci.org/hidoo/eslint-config) [![Greenkeeper badge](https://badges.greenkeeper.io/hidoo/eslint-config.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.com/hidoo/eslint-config.svg?branch=master)](https://travis-ci.com/hidoo/eslint-config)
 
 Sharable eslint config for my projects.
 
@@ -68,7 +68,7 @@ module.exports = {
 ## Test
 
 ```sh
-$ npm test
+$ yarn test
 ```
 
 ## License
