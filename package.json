@@ -1,6 +1,6 @@
 {
   "name": "@hidoo/eslint-config",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Sharable eslint config for my projects.",
   "main": "index.js",
   "engines": {
