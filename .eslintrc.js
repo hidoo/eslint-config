@@ -1,4 +1,5 @@
 module.exports = {
+  'root': true,
   'extends': [
     './index.js'
   ],
@@ -11,6 +12,15 @@ module.exports = {
       ],
       'extends': [
         './+node.js'
+      ]
+    },
+    // for mocha
+    {
+      'files': [
+        '**/*.test.js'
+      ],
+      'extends': [
+        './+mocha.js'
       ]
     },
     // for fixtures
