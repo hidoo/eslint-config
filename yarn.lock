@@ -1309,14 +1309,14 @@ eslint-plugin-import@2.18.2:
     read-pkg-up "^2.0.0"
     resolve "^1.11.0"
 
-eslint-plugin-jsdoc@15.9.9:
-  version "15.9.9"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-15.9.9.tgz#0561156a0d9fe167eeca726ea8479259f77895d7"
-  integrity sha512-gN1Dp9xaZSNAyxyahUpsnK8hubE5rYSxPSSN3wG8ZuzfMnIhp5Qm54GTdhXrK2/SjS4rNJ+C6EZFmOPSfyRcTA==
+eslint-plugin-jsdoc@15.9.10:
+  version "15.9.10"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jsdoc/-/eslint-plugin-jsdoc-15.9.10.tgz#7cf8e0f4d2bba3e540e80acf119306f3fe31fd26"
+  integrity sha512-m3jQQ7MJCnOksAhrQU5wSuPZQND1qvFNGBddhM2k3P9dJRg1N0fKHl79SE2ZV/ykd2RV1flsMHEa46kY2RCUPA==
   dependencies:
     comment-parser "^0.6.2"
     debug "^4.1.1"
-    jsdoctypeparser "^5.1.0"
+    jsdoctypeparser "^5.1.1"
     lodash "^4.17.15"
     object.entries-ponyfill "^1.0.1"
     regextras "^0.6.1"
@@ -2222,7 +2222,7 @@ js-yaml@3.13.1, js-yaml@^3.13.1:
     argparse "^1.0.7"
     esprima "^4.0.0"
 
-jsdoctypeparser@^5.1.0:
+jsdoctypeparser@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/jsdoctypeparser/-/jsdoctypeparser-5.1.1.tgz#99c57412fe736c70024bf54204ed1bb93cf4a49f"
   integrity sha512-APGygIJrT5bbz5lsVt8vyLJC0miEbQf/z9ZBfTr4RYvdia8AhWMRlYgivvwHG5zKD/VW3d6qpChCy64hpQET3A==
