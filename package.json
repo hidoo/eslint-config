@@ -39,7 +39,7 @@
   "devDependencies": {
     "@commitlint/cli": "8.2.0",
     "@commitlint/config-conventional": "8.2.0",
-    "conventional-changelog-cli": "2.0.27",
+    "conventional-changelog-cli": "2.0.28",
     "cross-env": "6.0.3",
     "eslint": "6.6.0",
     "eslint-find-rules": "3.4.0",
