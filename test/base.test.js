@@ -43,7 +43,12 @@ describe('base', () => {
       'line-comment-position',
       'lines-between-class-members',
       'newline-per-chained-call',
-      'object-curly-newline'
+      'object-curly-newline',
+      'grouped-accessor-pairs',
+      'no-constructor-return',
+      'no-dupe-else-if',
+      'no-setter-return',
+      'prefer-exponentiation-operator'
     ]);
     assert.deepStrictEqual(results.warnings, []);
   });
