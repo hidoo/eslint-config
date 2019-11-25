@@ -1,3 +1,5 @@
+/* eslint max-classes-per-file: 0 */
+
 // func-names
 (() => true)();
 
@@ -64,3 +66,55 @@ class LinesBetweenClassMembers {
         };
 })();
 /* eslint-enable no-unused-vars */
+
+// grouped-accessor-pairs
+/* eslint-disable no-unused-vars */
+class GroupedAccessorPairs {
+  get aaa() {
+    return this.aaa;
+  }
+
+  set aaa(value) {
+    this.aaa = value;
+  }
+
+  get hoge() {
+    return this.hoge;
+  }
+}
+/* eslint-enable no-unused-vars */
+
+// no-constructor-return
+/* eslint-disable no-unused-vars */
+class NoConstructorReturn {
+  constructor(value) {
+    this.value = value;
+  }
+}
+/* eslint-enable no-unused-vars */
+
+// no-dupe-else-if
+(() => {
+  const aa = true;
+
+  if (aa) {
+    return true;
+  }
+  return false;
+})();
+
+// no-setter-return
+/* eslint-disable no-unused-vars */
+class NoSetterReturn {
+  set aa(value) {
+    this.value = value;
+  }
+}
+/* eslint-enable no-unused-vars */
+
+// prefer-exponentiation-operator
+/* eslint-disable no-unused-vars, no-magic-numbers */
+(() => {
+  const result = 2 ** 2;
+})();
+/* eslint-enable no-unused-vars, no-magic-numbers */
