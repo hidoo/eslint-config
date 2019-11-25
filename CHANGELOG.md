@@ -1,20 +1,47 @@
+# [0.3.0](https://github.com/hidoo/eslint-config/compare/v0.2.0...v0.3.0) (2019-11-25)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-jsdoc to v15.11.1 ([0872818](https://github.com/hidoo/eslint-config/commit/08728185b0c631cca5042349c5c738833e51bdab))
+* **deps:** update dependency eslint-plugin-jsdoc to v15.12.0 ([672763d](https://github.com/hidoo/eslint-config/commit/672763dc421387dd4e1cf70944dc71f1c818c99a))
+* **deps:** update dependency eslint-plugin-jsdoc to v15.12.1 ([8de3dc3](https://github.com/hidoo/eslint-config/commit/8de3dc3ab505a215471af60008ed6f39f8162fa2))
+* **deps:** update dependency eslint-plugin-jsdoc to v15.12.2 ([29ebcf7](https://github.com/hidoo/eslint-config/commit/29ebcf78eb329b19d96a68b53516fee2573276bf))
+* **deps:** update dependency eslint-plugin-jsdoc to v15.9.10 ([b16db3b](https://github.com/hidoo/eslint-config/commit/b16db3b8a5e8bd05dfd88c29f5af201184c0df73))
+* **deps:** update dependency eslint-plugin-jsdoc to v15.9.5 ([adc2823](https://github.com/hidoo/eslint-config/commit/adc2823e334c1c483c944a020bfd939101dc0043))
+* **deps:** update dependency eslint-plugin-jsdoc to v15.9.9 ([5ca7cbc](https://github.com/hidoo/eslint-config/commit/5ca7cbc15b0f3b3d266a35a551e42b4552577dd3))
+* **deps:** update dependency eslint-plugin-jsdoc to v17 ([cdb6b09](https://github.com/hidoo/eslint-config/commit/cdb6b09847f060d40011462f055a135e77d0f56c))
+* **deps:** update dependency eslint-plugin-jsdoc to v17.1.1 ([5355422](https://github.com/hidoo/eslint-config/commit/5355422ff8ae6ae7a9b5ee7bb13057fc8ca712ee))
+* **deps:** update dependency eslint-plugin-jsdoc to v17.1.2 ([bca8700](https://github.com/hidoo/eslint-config/commit/bca87005c26bd51228f1f17f678c1f2bdd414f12))
+* **deps:** update dependency eslint-plugin-jsdoc to v18 ([f33005a](https://github.com/hidoo/eslint-config/commit/f33005ac61acd233d403727f27af46d5b1647618))
+* **deps:** update dependency eslint-plugin-mocha to v6.2.0 ([a5567d8](https://github.com/hidoo/eslint-config/commit/a5567d8db9a44bc4555b265f9e746c999120fc6e))
+* **deps:** update dependency eslint-plugin-mocha to v6.2.1 ([2a03cbc](https://github.com/hidoo/eslint-config/commit/2a03cbca8464e80924f14582acdcac101bbf7553))
+* **deps:** update dependency eslint-plugin-mocha to v6.2.2 ([6cca192](https://github.com/hidoo/eslint-config/commit/6cca19227578d44eed1747c04f6342690c71de47))
+
+
+### Features
+
+* **base:** support added new rules ([2c986fb](https://github.com/hidoo/eslint-config/commit/2c986fb89ce47686cff32c309fac18ba00628f90))
+
+
+
 # [0.2.0](https://github.com/hidoo/eslint-config/compare/v0.1.4...v0.2.0) (2019-09-17)
 
 
 ### Bug Fixes
 
-* **base:** fix function-paren-newline option to multiline-arguments ([302f6a5](https://github.com/hidoo/eslint-config/commit/302f6a5))
-* **base:** fix no-multiple-empty-lines options ([22e663a](https://github.com/hidoo/eslint-config/commit/22e663a))
-* **deps:** update dependency eslint-plugin-jsdoc to v15.9.2 ([271ea15](https://github.com/hidoo/eslint-config/commit/271ea15))
-* **deps:** update dependency eslint-plugin-mocha to v6.1.1 ([51a9ec1](https://github.com/hidoo/eslint-config/commit/51a9ec1))
-* **jsdoc:** fix check-examples to treat multiline code block as not js ([42fb474](https://github.com/hidoo/eslint-config/commit/42fb474))
-* **node:** fix to not remove browser globals ([760bf83](https://github.com/hidoo/eslint-config/commit/760bf83))
+* **base:** fix function-paren-newline option to multiline-arguments ([302f6a5](https://github.com/hidoo/eslint-config/commit/302f6a50ee5f88784bcaff875c72fc5ca814a4b1))
+* **base:** fix no-multiple-empty-lines options ([22e663a](https://github.com/hidoo/eslint-config/commit/22e663a4a2ac4199fe776dd6ecfaefd273657f20))
+* **deps:** update dependency eslint-plugin-jsdoc to v15.9.2 ([271ea15](https://github.com/hidoo/eslint-config/commit/271ea1524bf12bc8890499567de7c37be6d7ddd9))
+* **deps:** update dependency eslint-plugin-mocha to v6.1.1 ([51a9ec1](https://github.com/hidoo/eslint-config/commit/51a9ec19685174210fd69990477ce5ba2863f731))
+* **jsdoc:** fix check-examples to treat multiline code block as not js ([42fb474](https://github.com/hidoo/eslint-config/commit/42fb4742e15f6cf80713ffdd987a727c7c002b56))
+* **node:** fix to not remove browser globals ([760bf83](https://github.com/hidoo/eslint-config/commit/760bf839e0fa2ae1ad2124c5c95028d0163f12c2))
 
 
 ### Features
 
-* **base:** add rules that added in eslint 6.4.0 ([eaff4e9](https://github.com/hidoo/eslint-config/commit/eaff4e9))
-* enable some unused rules and add some plugins ([6c39896](https://github.com/hidoo/eslint-config/commit/6c39896))
+* **base:** add rules that added in eslint 6.4.0 ([eaff4e9](https://github.com/hidoo/eslint-config/commit/eaff4e90486f72a9cd6a24e0cb83b5f6826bc523))
+* enable some unused rules and add some plugins ([6c39896](https://github.com/hidoo/eslint-config/commit/6c398965672f92f6dca6a47e207daeba137973ff))
 
 
 ### BREAKING CHANGES
