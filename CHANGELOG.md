@@ -1,3 +1,16 @@
+## [0.3.1](https://github.com/hidoo/eslint-config/compare/v0.3.0...v0.3.1) (2019-12-23)
+
+
+### Bug Fixes
+
+* **base:** disable require-atomic-updates rule ([f08e3d6](https://github.com/hidoo/eslint-config/commit/f08e3d665df919f881b6996dd2d8ef059f541c2a))
+* **deps:** update dependency eslint-plugin-import to v2.19.1 ([019a48c](https://github.com/hidoo/eslint-config/commit/019a48c47d15903405330f9d3bd0d1b3a20e9704))
+* **deps:** update dependency eslint-plugin-jsdoc to v18.1.5 ([eb1af59](https://github.com/hidoo/eslint-config/commit/eb1af591102abd52e39a7be380aa051794366d84))
+* **deps:** update dependency eslint-plugin-jsdoc to v18.4.0 ([4cc77de](https://github.com/hidoo/eslint-config/commit/4cc77dee7864f1aa4db1ad04ca81749b7c71958f))
+* **deps:** update dependency eslint-plugin-jsdoc to v18.4.3 ([34491ae](https://github.com/hidoo/eslint-config/commit/34491ae1612d09cb1503cd2d38b23badb76f1b23))
+
+
+
 # [0.3.0](https://github.com/hidoo/eslint-config/compare/v0.2.0...v0.3.0) (2019-11-25)
 
 
