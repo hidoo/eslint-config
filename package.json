@@ -4,7 +4,7 @@
   "description": "Sharable eslint config for my projects.",
   "main": "index.js",
   "engines": {
-    "node": ">=8.10.0"
+    "node": ">=10.18.1"
   },
   "files": [
     "lib/",
