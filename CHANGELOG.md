@@ -1,3 +1,20 @@
+# [0.4.0](https://github.com/hidoo/eslint-config/compare/v0.3.1...v0.4.0) (2020-03-03)
+
+
+### Bug Fixes
+
+* **deps:** update dependency babel-eslint to v10.1.0 ([e2b343b](https://github.com/hidoo/eslint-config/commit/e2b343b337af632745e5ef32611ca3df0b775240))
+* **deps:** update dependency eslint-plugin-import to v2.20.0 ([4be6d0b](https://github.com/hidoo/eslint-config/commit/4be6d0bb2ae7788c1ef916fa010fd9cb1f355725))
+* **deps:** update dependency eslint-plugin-import to v2.20.1 ([afb98d9](https://github.com/hidoo/eslint-config/commit/afb98d98cbfbf8d0c9c01dd0a446eb81d7016c89))
+* **deps:** update dependency eslint-plugin-jsdoc to v18.4.4 ([896c870](https://github.com/hidoo/eslint-config/commit/896c870f2ba35fff1bf703899d7795a368c6150b))
+* **deps:** update dependency eslint-plugin-jsdoc to v20 ([0cc2f98](https://github.com/hidoo/eslint-config/commit/0cc2f9842f4b25b0a1755fad5d05cd6285742cef))
+* **deps:** update dependency eslint-plugin-jsdoc to v21 ([0a0ec2a](https://github.com/hidoo/eslint-config/commit/0a0ec2a41982272dc33bb4778196b733c1b8dd34))
+* **deps:** update dependency eslint-plugin-mocha to v6.3.0 ([8fb23c5](https://github.com/hidoo/eslint-config/commit/8fb23c5551dd94c97d5d2d1c058253c9fc4ff3d4))
+* **deps:** update dependency eslint-plugin-node to v11 ([61637be](https://github.com/hidoo/eslint-config/commit/61637be47d52cc78c04c936c001c15c71ad13036))
+* **node:** remove node v8 support ([92ead6f](https://github.com/hidoo/eslint-config/commit/92ead6fff784ce98e3661bf166f9c67c4e0e9d10))
+
+
+
 ## [0.3.1](https://github.com/hidoo/eslint-config/compare/v0.3.0...v0.3.1) (2019-12-23)
 
 
