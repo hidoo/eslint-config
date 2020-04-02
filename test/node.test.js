@@ -47,9 +47,19 @@ describe('node', () => {
       'node/prefer-global/text-decoder',
       'node/prefer-global/text-encoder',
       'node/prefer-global/url-search-params',
-      'node/prefer-global/url'
+      'node/prefer-global/url',
+      'node/callback-return',
+      'node/global-require',
+      'node/handle-callback-err',
+      'node/no-mixed-requires',
+      'node/no-new-require',
+      'node/no-path-concat',
+      'node/no-process-exit'
     ]);
-    assert.deepStrictEqual(results.warnings, []);
+    assert.deepStrictEqual(results.warnings, [
+      'node/no-process-env',
+      'node/no-sync'
+    ]);
   });
 
 });

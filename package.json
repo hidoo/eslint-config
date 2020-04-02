@@ -33,7 +33,7 @@
     "eslint-plugin-import": "2.20.2",
     "eslint-plugin-jsdoc": "22.1.0",
     "eslint-plugin-mocha": "6.3.0",
-    "eslint-plugin-node": "11.0.0",
+    "eslint-plugin-node": "11.1.0",
     "eslint-plugin-sort-class-members": "1.6.0"
   },
   "devDependencies": {
