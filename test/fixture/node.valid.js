@@ -1,3 +1,6 @@
+const fs = require('fs');
+const path = require('path');
+
 // node/no-callback-literal
 /* eslint-disable no-undef */
 noCallbackLiteral((error, cb) => {
@@ -30,3 +33,58 @@ new TextEncoder();
 new URLSearchParams();
 new URL();
 /* eslint-enable no-new, node/no-unsupported-features/node-builtins */
+
+// node/callback-return
+const callbackReturn = (error, callback) => {
+  if (error) {
+    return callback(error);
+  }
+  return callback();
+};
+
+// node/global-require
+/* eslint-disable no-undef */
+const globalRequire = DEBUG ? require('global-require') : null;
+/* eslint-enable no-undef */
+
+// node/handle-callback-err
+const handleCallbackErr = (error, callback) => {
+  if (error) {
+    return callback(error);
+  }
+  return callback();
+};
+
+// node/no-mixed-requires
+const noMixedRequires = require('no-mixed-requires');
+
+const noMixedRequiresError = false;
+
+// node/no-new-require
+const NoNewRequire = require('no-new-require');
+
+const noNewRequire = new NoNewRequire();
+
+// node/no-path-concat
+/* eslint-disable no-undef */
+const noPathConcatDirname = path.join(__dirname, 'no-path-concat.js');
+const noPathConcatFilename = path.join(__filename, 'no-path-concat.js');
+const noPathConcatVar = `${dirname}/no-path-concat.js`;
+/* eslint-enable no-undef */
+
+// node/no-process-env
+const noProcessEnv = true;
+
+// node/no-process-exit
+/* eslint-disable no-undef */
+if (noProcessExit) {
+  throw new Error();
+}
+/* eslint-enable no-undef */
+
+// node/no-sync
+fs.stat('/path/to/no-sync', (error, stats) => {
+  if (error) {
+    throw error;
+  }
+});
