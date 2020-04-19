@@ -45,7 +45,7 @@
     "eslint-find-rules": "3.4.0",
     "husky": "4.2.5",
     "intelli-espower-loader": "1.0.1",
-    "lint-staged": "10.1.5",
+    "lint-staged": "10.1.6",
     "mocha": "7.1.1",
     "npm-run-all": "4.1.5",
     "power-assert": "1.6.1"
