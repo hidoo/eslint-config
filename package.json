@@ -54,6 +54,7 @@
     "eslint": ">=6.0.0"
   },
   "resolutions": {
+    "mem": "^4.0.0",
     "minimist": "^1.2.5"
   },
   "husky": {
