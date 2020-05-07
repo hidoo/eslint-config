@@ -1,3 +1,29 @@
+# [0.5.0](https://github.com/hidoo/eslint-config/compare/v0.4.0...v0.5.0) (2020-05-07)
+
+
+### Bug Fixes
+
+* **deps:** force update mem to version 4.0.0 or later ([98684f0](https://github.com/hidoo/eslint-config/commit/98684f084326798a8ca0019b7bee683c3b1dba95))
+* **deps:** force update minimist to version 1.2.5 or later ([c4891e8](https://github.com/hidoo/eslint-config/commit/c4891e8c233bd8a5f1b085437794df30c27a46d3))
+* **deps:** update dependency eslint-plugin-import to v2.20.2 ([8a0510a](https://github.com/hidoo/eslint-config/commit/8a0510ac4560b5b555162ed15d458a3798618c14))
+* **deps:** update dependency eslint-plugin-jsdoc to v22 ([c67be0b](https://github.com/hidoo/eslint-config/commit/c67be0ba55ede9d4825033f62ba72775e07e576b))
+* **deps:** update dependency eslint-plugin-jsdoc to v22.0.1 ([c20edac](https://github.com/hidoo/eslint-config/commit/c20edac09c0f72a4b72443edf213fdf4d0f1dae8))
+* **deps:** update dependency eslint-plugin-jsdoc to v22.1.0 ([b24d444](https://github.com/hidoo/eslint-config/commit/b24d444bcea6634c5f6673f74ae0a1173dcf0f83))
+* **deps:** update dependency eslint-plugin-jsdoc to v23 ([19e3876](https://github.com/hidoo/eslint-config/commit/19e3876b60ae0bcd362c8a6e26370545adbb462c))
+* **deps:** update dependency eslint-plugin-jsdoc to v23.0.1 ([81eb55e](https://github.com/hidoo/eslint-config/commit/81eb55e0dd960fab1d66cd4c3cfc7137c5e38181))
+* **deps:** update dependency eslint-plugin-jsdoc to v23.1.0 ([993c396](https://github.com/hidoo/eslint-config/commit/993c39602c599950db5677ba37e4ca8e8c387a14))
+* **deps:** update dependency eslint-plugin-jsdoc to v24 ([8caa1f0](https://github.com/hidoo/eslint-config/commit/8caa1f01a76ae83a8ebdfd27818f168d1dd033cd))
+* **deps:** update dependency eslint-plugin-node to v11.1.0 ([fb0b577](https://github.com/hidoo/eslint-config/commit/fb0b577e7c08d9c1d7521cc534fb2b403e84cfd8))
+* **deps:** update dependency eslint-plugin-sort-class-members to v1.7.0 ([72dc99c](https://github.com/hidoo/eslint-config/commit/72dc99c89a311ae0a99a540dbe9c49c4f7b8b4db))
+* **node:** add rules that will be deprecated in ESLint core 7.0.0 ([4ed4c94](https://github.com/hidoo/eslint-config/commit/4ed4c94d37e48aa537afc573bfebc2f7d2108be0))
+
+
+### Features
+
+* **node:** add node v14 support ([b596bda](https://github.com/hidoo/eslint-config/commit/b596bda1a3d5fda53a83498678963c38d5166e10))
+
+
+
 # [0.4.0](https://github.com/hidoo/eslint-config/compare/v0.3.1...v0.4.0) (2020-03-03)
 
 
