@@ -1,3 +1,18 @@
+# [0.6.0](https://github.com/hidoo/eslint-config/compare/v0.5.0...v0.6.0) (2020-05-11)
+
+
+### Bug Fixes
+
+* **base:** remove deprecated rules ([b41102f](https://github.com/hidoo/eslint-config/commit/b41102f4cbcfa9fa7feae8eb766ac721f8468132))
+* **deps:** update dependency eslint-plugin-jsdoc to v25 ([6c585ee](https://github.com/hidoo/eslint-config/commit/6c585ee11f933152b4497e0d80c966df2d6ae649))
+
+
+### Features
+
+* **base:** support added new rules ([48a3fff](https://github.com/hidoo/eslint-config/commit/48a3fff06fb4ade516c1be349df0f8262e5e6e94))
+
+
+
 # [0.5.0](https://github.com/hidoo/eslint-config/compare/v0.4.0...v0.5.0) (2020-05-07)
 
 
