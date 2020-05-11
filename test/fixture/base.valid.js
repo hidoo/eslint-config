@@ -106,6 +106,10 @@ class NoConstructorReturn {
 // no-setter-return
 /* eslint-disable no-unused-vars */
 class NoSetterReturn {
+  get aa() {
+    return this.value;
+  }
+
   set aa(value) {
     this.value = value;
   }
