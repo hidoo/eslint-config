@@ -36,7 +36,7 @@ module.exports = {
       files: [
         'test/fixture/eslint-comments.*.js',
         'test/fixture/jsdoc.*.js',
-        'test/fixture/import.*.js',
+        'test/fixture/import.*.js'
       ],
       rules: {
         'no-var': 'off',
@@ -64,13 +64,13 @@ module.exports = {
       ]
     },
     {
-      files: [
+      'files': [
         'test/fixture/sort-class-members.*.js'
       ],
       'extends': [
         './+babel.js'
       ],
-      rules: {
+      'rules': {
         'no-var': 'off',
         'no-unused-vars': 'off'
       }
