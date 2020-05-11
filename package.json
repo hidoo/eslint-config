@@ -41,7 +41,7 @@
     "@commitlint/config-conventional": "8.3.4",
     "conventional-changelog-cli": "2.0.34",
     "cross-env": "7.0.2",
-    "eslint": "6.8.0",
+    "eslint": "7.0.0",
     "eslint-find-rules": "3.5.0",
     "husky": "4.2.5",
     "intelli-espower-loader": "1.0.1",
