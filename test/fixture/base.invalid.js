@@ -101,6 +101,10 @@ class NoConstructorReturn {
 // no-setter-return
 /* eslint-disable no-unused-vars */
 class NoSetterReturn {
+  get aa() {
+    return this.value;
+  }
+
   set aa(value) {
     this.value = value;
     return value;
@@ -114,3 +118,20 @@ class NoSetterReturn {
   const result = Math.pow(2, 2);
 })();
 /* eslint-enable no-unused-vars, no-magic-numbers */
+
+// default-case-last
+(() => {
+  const defaultCaseLast = 'valid';
+
+  switch (defaultCaseLast) {
+    default:
+      break;
+    case 'invalid':
+      break;
+  }
+})();
+
+// no-useless-backreference
+/* eslint-disable no-unused-vars, prefer-named-capture-group */
+const noUselessBackreference = /(\1)/;
+/* eslint-enable no-unused-vars, prefer-named-capture-group */

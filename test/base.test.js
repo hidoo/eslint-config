@@ -48,7 +48,9 @@ describe('base', () => {
       'no-constructor-return',
       'no-dupe-else-if',
       'no-setter-return',
-      'prefer-exponentiation-operator'
+      'prefer-exponentiation-operator',
+      'default-case-last',
+      'no-useless-backreference'
     ]);
     assert.deepStrictEqual(results.warnings, []);
   });
