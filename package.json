@@ -40,7 +40,7 @@
     "@commitlint/cli": "8.3.5",
     "@commitlint/config-conventional": "8.3.4",
     "conventional-changelog-cli": "2.0.35",
-    "cross-env": "7.0.2",
+    "cross-env": "7.0.3",
     "eslint": "7.0.0",
     "eslint-find-rules": "3.5.0",
     "husky": "4.2.5",
