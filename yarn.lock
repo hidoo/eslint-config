@@ -1429,10 +1429,10 @@ eslint-plugin-node@11.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-sort-class-members@1.7.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-sort-class-members/-/eslint-plugin-sort-class-members-1.7.0.tgz#82b8bfd1bf4bf4a4766b67e816359085a49b1dc3"
-  integrity sha512-p9VeMf4lwJs4VJ9jDJRadXPklNGIdUYxeCLi0tjF3F83KNC6CfX+c3H2h0DQ2yLl3hgKf0j6s3wGpZUuRYToeA==
+eslint-plugin-sort-class-members@1.19.0:
+  version "1.19.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-sort-class-members/-/eslint-plugin-sort-class-members-1.19.0.tgz#9ad7a674c4cb477fceaddb8162515372d381c733"
+  integrity sha512-YayvASA1bavdPeRU9FMPnale2+Oi3aMcHGVC5EUm9b671oxm7ahvR+q8BfsU2aV+KAFezNfu47VPgdZK6gwYPw==
 
 eslint-rule-documentation@^1.0.23:
   version "1.0.23"
