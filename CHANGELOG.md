@@ -1,3 +1,23 @@
+# [0.7.0](https://github.com/hidoo/eslint-config/compare/v0.6.0...v0.7.0) (2024-01-18)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-jsdoc to v25.4.1 ([cf20222](https://github.com/hidoo/eslint-config/commit/cf20222693693d0435b7ad1f24e0b0c26c3c91ad))
+* **deps:** update dependency eslint-plugin-jsdoc to v25.4.2 ([651703f](https://github.com/hidoo/eslint-config/commit/651703f3a0bccddc48ba5be15eba9a347aea61e9))
+* **deps:** update dependency eslint-plugin-jsdoc to v25.4.3 ([a522d7e](https://github.com/hidoo/eslint-config/commit/a522d7e0a7a00cccd566fb5bd84685b09776bb5e))
+* **deps:** update dependency eslint-plugin-mocha to v7 ([755483c](https://github.com/hidoo/eslint-config/commit/755483c3b5a111bff520a21817d0268bfbb1efc1))
+* **deps:** update dependency eslint-plugin-mocha to v7.0.1 ([c75e752](https://github.com/hidoo/eslint-config/commit/c75e75208583b7fad1a8de470e010a349c107011))
+* **deps:** update dependency eslint-plugin-mocha to v8 ([7780980](https://github.com/hidoo/eslint-config/commit/77809805678f4c03b873535fc8aaafa5d4d4515e))
+* **node:** drop nodejs v10, v12, v14 support ([4b75f60](https://github.com/hidoo/eslint-config/commit/4b75f600e9dc3bb3c5b28d4b1ce8007af91a3d61))
+
+
+### Features
+
+* update rules ([d1054fb](https://github.com/hidoo/eslint-config/commit/d1054fbc44bde0b0b2f08a5ea6462916e6b56903))
+
+
+
 # [0.6.0](https://github.com/hidoo/eslint-config/compare/v0.5.0...v0.6.0) (2020-05-11)
 
 

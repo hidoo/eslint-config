@@ -1,6 +1,6 @@
 {
   "name": "@hidoo/eslint-config",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "description": "Sharable eslint config for my projects.",
   "packageManager": "yarn@1.22.19",
   "engines": {
