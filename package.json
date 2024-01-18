@@ -2,9 +2,18 @@
   "name": "@hidoo/eslint-config",
   "version": "0.6.0",
   "description": "Sharable eslint config for my projects.",
-  "main": "index.js",
+  "packageManager": "yarn@1.22.19",
   "engines": {
-    "node": ">=10.18.1"
+    "node": "^16.9.0 || >=18.0.0",
+    "yarn": "1.22.19"
+  },
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./+babel": "./+babel.js",
+    "./+mocha": "./+mocha.js",
+    "./+node": "./+node.js",
+    "./lib/*": "./lib/*.js"
   },
   "files": [
     "lib/",
