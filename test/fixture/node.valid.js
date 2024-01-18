@@ -24,7 +24,7 @@ module.exports.hoge = () => true;
 // node/prefer-global/text-encoder
 // node/prefer-global/url-search-params
 // node/prefer-global/url
-/* eslint-disable no-new, node/no-unsupported-features/node-builtins */
+/* eslint-disable no-new */
 Buffer.from();
 console.log();
 process.cwd();
@@ -32,7 +32,7 @@ new TextDecoder();
 new TextEncoder();
 new URLSearchParams();
 new URL();
-/* eslint-enable no-new, node/no-unsupported-features/node-builtins */
+/* eslint-enable no-new */
 
 // node/callback-return
 const callbackReturn = (error, callback) => {
