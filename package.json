@@ -2,10 +2,10 @@
   "name": "@hidoo/eslint-config",
   "version": "0.7.0",
   "description": "Sharable eslint config for my projects.",
-  "packageManager": "yarn@1.22.19",
+  "packageManager": "yarn@1.22.21",
   "engines": {
     "node": "^16.9.0 || >=18.0.0",
-    "yarn": "1.22.19"
+    "yarn": "1.22.21"
   },
   "main": "index.js",
   "exports": {
