@@ -1,6 +1,6 @@
 # @hidoo/eslint-config
 
-[![Status](https://github.com/hidoo/eslint-config/workflows/Main%20workflow/badge.svg)](https://github.com/hidoo/eslint-config/actions?query=branch%3Amaster)
+[![Test](https://github.com/hidoo/eslint-config/actions/workflows/main.yml/badge.svg)](https://github.com/hidoo/eslint-config/actions/workflows/main.yml)
 
 Sharable eslint config for my projects.
 
