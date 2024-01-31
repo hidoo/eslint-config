@@ -16,20 +16,23 @@ $ npm install --save-dev eslint @hidoo/eslint-config
 
 ```js
 module.exports = {
-  'extends': [
-    '@hidoo/eslint-config'
-  ]
+  extends: ['@hidoo/eslint-config']
 };
 ```
 
-### with babel-eslint
+### with @babel/eslint-parser
 
 ```js
 module.exports = {
-  'extends': [
-    '@hidoo/eslint-config',
-    '@hidoo/eslint-config/+babel'
-  ]
+  extends: ['@hidoo/eslint-config', '@hidoo/eslint-config/+babel']
+};
+```
+
+### with ESLint Stylistic
+
+```js
+module.exports = {
+  extends: ['@hidoo/eslint-config', '@hidoo/eslint-config/+stylistic']
 };
 ```
 
@@ -37,13 +40,11 @@ module.exports = {
 
 ```js
 module.exports = {
-  'extends': [
-    '@hidoo/eslint-config'
-  ],
-  'overrides': [
+  extends: ['@hidoo/eslint-config'],
+  overrides: [
     {
-      'files': ['**/*.test.js'],
-      'extends': ['@hidoo/eslint-config/+mocha']
+      files: ['**/*.test.js'],
+      extends: ['@hidoo/eslint-config/+mocha']
     }
   ]
 };
@@ -53,13 +54,11 @@ module.exports = {
 
 ```js
 module.exports = {
-  'extends': [
-    '@hidoo/eslint-config'
-  ],
-  'overrides': [
+  extends: ['@hidoo/eslint-config'],
+  overrides: [
     {
-      'files': ['path/to/**/*.js'],
-      'extends': ['@hidoo/eslint-config/+node']
+      files: ['path/to/**/*.js'],
+      extends: ['@hidoo/eslint-config/+node']
     }
   ]
 };
@@ -68,7 +67,7 @@ module.exports = {
 ## Test
 
 ```sh
-$ yarn test
+$ pnpm test
 ```
 
 ## License

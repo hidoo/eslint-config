@@ -1,3 +1,4 @@
+/* eslint import/no-unresolved: off */
 const noAbsolutePath = require('/path/to/hoge'),
       noDynamicRequire = require('./path' + '/to/fuga'), // eslint-disable-line no-useless-concat
       noWebpackLoaderSyntax = require('loader!./my-module'),

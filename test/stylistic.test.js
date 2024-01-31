@@ -2,9 +2,9 @@ const assert = require('assert');
 const path = require('path');
 const { findRules, runLint, validateConfig } = require('./lib');
 
-const configFile = path.resolve(__dirname, '../lib/sort-class-members.js');
+const configFile = path.resolve(__dirname, '../lib/stylistic.js');
 
-describe('sort-class-members', () => {
+describe('stylistic', () => {
   it('should be valid.', async () => {
     let err = null;
 
@@ -21,7 +21,7 @@ describe('sort-class-members', () => {
 
   it('should not use deprecated rules.', async () => {
     const rules = await findRules('deprecated', configFile, {
-      filterPrefix: /^sort-class-members\//
+      filterPrefix: /^@stylistic\//
     });
 
     assert(Array.isArray(rules));
@@ -30,29 +30,43 @@ describe('sort-class-members', () => {
 
   it('should not be unused rules.', async () => {
     const rules = await findRules('unused', configFile, {
-      filterPrefix: /^sort-class-members\//
+      filterPrefix: /^@stylistic\//
     });
 
     assert(Array.isArray(rules));
     assert.deepEqual(rules, []);
   });
 
-  it('should has no errors and no warnings in sort-class-members.valid.js', async () => {
-    const file = path.resolve(
-      __dirname,
-      './fixture/sort-class-members.valid.js'
-    );
+  it('should has no errors and no warnings in stylistic.valid.js', async () => {
+    const file = path.resolve(__dirname, './fixture/stylistic.valid.js');
     const results = await runLint(file, configFile, {
       overrideConfig: {
-        parser: '@babel/eslint-parser',
         parserOptions: {
-          ecmaVersion: 'latest',
-          requireConfigFile: false
+          ecmaVersion: 'latest'
         }
       }
     });
 
     assert.deepEqual(results.errors, []);
+    assert.deepEqual(results.warnings, []);
+  });
+
+  it('should has some errors and warnings in stylistic.invalid.js', async () => {
+    const file = path.resolve(__dirname, './fixture/stylistic.invalid.js');
+    const results = await runLint(file, configFile, {
+      overrideConfig: {
+        parserOptions: {
+          ecmaVersion: 'latest'
+        }
+      }
+    });
+
+    assert.deepEqual(results.errors, [
+      '@stylistic/function-paren-newline',
+      '@stylistic/lines-between-class-members',
+      '@stylistic/newline-per-chained-call',
+      '@stylistic/object-curly-newline'
+    ]);
     assert.deepEqual(results.warnings, []);
   });
 });

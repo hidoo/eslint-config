@@ -1,49 +1,57 @@
-const assert = require('assert'),
-      path = require('path'),
-      config = require('../lib/base'),
-      {findRules, runLint, validate} = require('./lib');
+const assert = require('assert');
+const path = require('path');
+const { findRules, runLint, validateConfig } = require('./lib');
 
 const configFile = path.resolve(__dirname, '../lib/base.js');
 
 describe('base', () => {
+  it('should be valid.', async () => {
+    let err = null;
 
-  it('should be valid.', () => {
-    validate(config);
+    try {
+      const config = await validateConfig(configFile);
+
+      assert(config);
+    } catch (error) {
+      err = error;
+    }
+
+    assert(err === null);
   });
 
-  it('should not use deprecated rules.', () => {
-    const rules = findRules('deprecated', configFile);
+  it('should not use deprecated rules.', async () => {
+    const rules = await findRules('deprecated', configFile);
 
     assert(Array.isArray(rules));
-    assert.deepStrictEqual(rules, []);
+    assert.deepEqual(rules, [
+      // DEPRECATED but included in eslint:recommended
+      'no-extra-semi',
+      'no-mixed-spaces-and-tabs'
+    ]);
   });
 
-  it('should not be unused rules.', () => {
-    const rules = findRules('unused', configFile);
+  it('should not be unused rules.', async () => {
+    const rules = await findRules('unused', configFile);
 
     assert(Array.isArray(rules));
-    assert.deepStrictEqual(rules, []);
+    assert.deepEqual(rules, []);
   });
 
   it('should has no errors and no warnings in base.valid.js', async () => {
-    const file = path.resolve(__dirname, './fixture/base.valid.js'),
-          results = await runLint(file, configFile);
+    const file = path.resolve(__dirname, './fixture/base.valid.js');
+    const results = await runLint(file, configFile);
 
-    assert.deepStrictEqual(results.errors, []);
-    assert.deepStrictEqual(results.warnings, []);
+    assert.deepEqual(results.errors, []);
+    assert.deepEqual(results.warnings, []);
   });
 
   it('should has some errors and warnings in base.invalid.js', async () => {
-    const file = path.resolve(__dirname, './fixture/base.invalid.js'),
-          results = await runLint(file, configFile);
+    const file = path.resolve(__dirname, './fixture/base.invalid.js');
+    const results = await runLint(file, configFile);
 
-    assert.deepStrictEqual(results.errors, [
+    assert.deepEqual(results.errors, [
       'func-names',
-      'function-paren-newline',
       'line-comment-position',
-      'lines-between-class-members',
-      'newline-per-chained-call',
-      'object-curly-newline',
       'grouped-accessor-pairs',
       'no-constructor-return',
       'no-dupe-else-if',
@@ -52,7 +60,6 @@ describe('base', () => {
       'default-case-last',
       'no-useless-backreference'
     ]);
-    assert.deepStrictEqual(results.warnings, []);
+    assert.deepEqual(results.warnings, []);
   });
-
 });
