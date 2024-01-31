@@ -1,6 +1,0 @@
-module.exports = {
-  recursive: true,
-  ui: 'bdd',
-  timeout: 4000,
-  slow: 0
-};
