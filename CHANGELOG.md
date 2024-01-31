@@ -1,3 +1,13 @@
+# [1.0.0](https://github.com/hidoo/eslint-config/compare/v0.7.0...v1.0.0) (2024-01-31)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-jsdoc to v48.0.4 ([d3b5980](https://github.com/hidoo/eslint-config/commit/d3b59800ccf5ff050f10b76f8a3b632913aca472))
+* **node:** drop nodejs v16 support ([1da033d](https://github.com/hidoo/eslint-config/commit/1da033d4c43d98f78e12537bce6ebbbd354fe802))
+
+
+
 # [0.7.0](https://github.com/hidoo/eslint-config/compare/v0.6.0...v0.7.0) (2024-01-18)
 
 
