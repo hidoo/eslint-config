@@ -12,15 +12,19 @@ const defaultOptions = {
 /**
  * find rules by type
  *
- * @param {String} [type='deprecated'] type of rules
- * @param {String} [configFile=''] file path of config
- * @param {Object} [options={}] options
+ * @param {String} type type of rules
+ * @param {String} configFile file path of config
+ * @param {Object} options options
  * @param {String|RegExp} options.filterPrefix filter prefix
- * @return {Array} list of ruleIds
+ * @return {Promise<Array>} list of ruleIds
  */
-module.exports = function findRules(type = 'deprecated', configFile = '', options = {}) {
-  const ruleFinder = getRuleFinder(configFile),
-        {filterPrefix} = Object.assign(defaultOptions, options);
+module.exports = async function findRules(
+  type = 'deprecated',
+  configFile = '',
+  options = {}
+) {
+  const ruleFinder = await getRuleFinder(configFile);
+  const {filterPrefix} = Object.assign(defaultOptions, options);
   let rules = [];
 
   if (type === 'unused') {

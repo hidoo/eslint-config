@@ -1,9 +1,9 @@
-const findRules = require('./findRules'),
-      runLint = require('./runLint'),
-      validate = require('./validate');
+const findRules = require('./findRules');
+const runLint = require('./runLint');
+const validateConfig = require('./validateConfig');
 
 module.exports = {
   findRules,
   runLint,
-  validate
+  validateConfig
 };

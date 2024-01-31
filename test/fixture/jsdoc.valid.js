@@ -14,7 +14,6 @@ function settings(bool, str, num) {
  * jsdoc/check-examples
  *
  * @return {Boolean}
- *
  * @example
  * checkExamples();
  */
@@ -26,7 +25,6 @@ function checkExamples() {
  * jsdoc/check-examples rejectExampleCodeRegex
  *
  * @return {Boolean}
- *
  * @example ```hbs
  * {{hoge}}
  * ```

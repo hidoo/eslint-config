@@ -2,14 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 // node/no-callback-literal
-/* eslint-disable no-undef */
 noCallbackLiteral((error, cb) => {
   if (error) {
     return cb(error);
   }
   return cb(null, 'aaaa');
 });
-/* eslint-enable no-undef */
 
 // node/exports-style
 module.exports.hoge = () => true;
@@ -43,9 +41,7 @@ const callbackReturn = (error, callback) => {
 };
 
 // node/global-require
-/* eslint-disable no-undef */
 const globalRequire = DEBUG ? require('global-require') : null;
-/* eslint-enable no-undef */
 
 // node/handle-callback-err
 const handleCallbackErr = (error, callback) => {
@@ -66,21 +62,17 @@ const NoNewRequire = require('no-new-require');
 const noNewRequire = new NoNewRequire();
 
 // node/no-path-concat
-/* eslint-disable no-undef */
 const noPathConcatDirname = path.join(__dirname, 'no-path-concat.js');
 const noPathConcatFilename = path.join(__filename, 'no-path-concat.js');
 const noPathConcatVar = `${dirname}/no-path-concat.js`;
-/* eslint-enable no-undef */
 
 // node/no-process-env
 const noProcessEnv = true;
 
 // node/no-process-exit
-/* eslint-disable no-undef */
 if (noProcessExit) {
   throw new Error();
 }
-/* eslint-enable no-undef */
 
 // node/no-sync
 fs.stat('/path/to/no-sync', (error, stats) => {

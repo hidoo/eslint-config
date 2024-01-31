@@ -1,35 +1,46 @@
-const assert = require('assert'),
-      path = require('path'),
-      {CLIEngine} = require('eslint'),
-      config = require('../index.js'),
-      {validate} = require('./lib');
+const assert = require('assert');
+const path = require('path');
+const {ESLint} = require('eslint');
+const {validateConfig} = require('./lib');
+
+const configFile = path.resolve(__dirname, '../index.js');
 
 describe('@hidoo/eslint-config', () => {
   let baseConfig = null;
 
-  beforeEach(() => {
-    const cli = new CLIEngine({
+  before(async () => {
+    const eslint = new ESLint({
       baseConfig: {
         'extends': [
-          path.resolve(__dirname, '../index.js')
+          configFile
         ]
       },
       useEslintrc: false,
       ignore: false
     });
-
-    baseConfig = cli.getConfigForFile(path.resolve(__dirname, '../index.js'));
+    baseConfig = await eslint.calculateConfigForFile('_.js');
   });
 
-  it('should be valid.', () => {
-    validate(config);
+  it('should be valid.', async () => {
+    let err = null;
+
+    try {
+      const config = await validateConfig(configFile);
+
+      assert(config);
+    }
+    catch (error) {
+      err = error;
+    }
+
+    assert(err === null);
   });
 
-  it('should use babel-eslint to parser if extends with "@hidoo/eslint-config/+babel".', () => {
-    const cli = new CLIEngine({
+  it('should use @babel/eslint-parser with "@hidoo/eslint-config/+babel".', async () => {
+    const eslint = new ESLint({
       baseConfig: {
         'extends': [
-          path.resolve(__dirname, '../index.js'),
+          configFile,
           path.resolve(__dirname, '../+babel.js')
         ]
       },
@@ -37,21 +48,27 @@ describe('@hidoo/eslint-config', () => {
       ignore: false
     });
 
-    const cfg = cli.getConfigForFile(path.resolve(__dirname, '../index.js'));
+    const config = await eslint.calculateConfigForFile('_.js');
 
-    assert(cfg.parser.indexOf('babel-eslint') !== -1);
-    assert.deepStrictEqual(cfg.env, baseConfig.env);
-    assert.deepStrictEqual(cfg.settings, baseConfig.settings);
-    assert.deepStrictEqual(cfg.plugins, baseConfig.plugins);
-    assert.deepStrictEqual(cfg.parserOptions, baseConfig.parserOptions);
-    assert.deepStrictEqual(cfg.rules, baseConfig.rules);
+    assert(config.parser.indexOf('@babel/eslint-parser') !== -1);
+    assert.deepEqual(config.env, baseConfig.env);
+    assert.deepEqual(config.settings, baseConfig.settings);
+    assert.deepEqual(config.plugins, baseConfig.plugins);
+    assert.deepEqual(
+      config.parserOptions,
+      {
+        ...baseConfig.parserOptions,
+        requireConfigFile: false
+      }
+    );
+    assert.deepEqual(config.rules, baseConfig.rules);
   });
 
-  it('should use settings for mocha if extends with "@hidoo/eslint-config/+mocha".', () => {
-    const cli = new CLIEngine({
+  it('should use settings for mocha with "@hidoo/eslint-config/+mocha".', async () => {
+    const eslint = new ESLint({
       baseConfig: {
         'extends': [
-          path.resolve(__dirname, '../index.js'),
+          configFile,
           path.resolve(__dirname, '../+mocha.js')
         ]
       },
@@ -59,19 +76,19 @@ describe('@hidoo/eslint-config', () => {
       ignore: false
     });
 
-    const cfg = cli.getConfigForFile(path.resolve(__dirname, '../index.js'));
+    const config = await eslint.calculateConfigForFile('_.js');
 
-    assert.deepStrictEqual(cfg.env, Object.assign(baseConfig.env, {mocha: true, node: true}));
-    assert.deepStrictEqual(cfg.settings, baseConfig.settings);
-    assert.deepStrictEqual(cfg.plugins, [...baseConfig.plugins, 'mocha']);
-    assert.deepStrictEqual(cfg.parserOptions, baseConfig.parserOptions);
+    assert.deepEqual(config.env, {...baseConfig.env, mocha: true});
+    assert.deepEqual(config.settings, baseConfig.settings);
+    assert.deepEqual(config.plugins, [...baseConfig.plugins, 'mocha']);
+    assert.deepEqual(config.parserOptions, baseConfig.parserOptions);
   });
 
-  it('should use settings for Node.js if extends with "@hidoo/eslint-config/+node".', () => {
-    const cli = new CLIEngine({
+  it('should use settings for Node.js with "@hidoo/eslint-config/+node".', async () => {
+    const eslint = new ESLint({
       baseConfig: {
         'extends': [
-          path.resolve(__dirname, '../index.js'),
+          configFile,
           path.resolve(__dirname, '../+node.js')
         ]
       },
@@ -79,16 +96,21 @@ describe('@hidoo/eslint-config', () => {
       ignore: false
     });
 
-    const cfg = cli.getConfigForFile(path.resolve(__dirname, '../index.js'));
+    const config = await eslint.calculateConfigForFile('_.js');
 
-    assert.deepStrictEqual(cfg.env, Object.assign(baseConfig.env, {node: true}));
-    assert.deepStrictEqual(cfg.settings, baseConfig.settings);
-    assert.deepStrictEqual(cfg.plugins, [...baseConfig.plugins, 'node']);
-    assert.deepStrictEqual(cfg.parserOptions, Object.assign(baseConfig.parserOptions, {
-      ecmaFeatures: Object.assign(baseConfig.parserOptions.ecmaFeatures, {
-        globalReturn: true,
-        impliedStrict: true
-      })
-    }));
+    assert.deepEqual(config.env, {...baseConfig.env, node: true});
+    assert.deepEqual(config.settings, baseConfig.settings);
+    assert.deepEqual(config.plugins, [...baseConfig.plugins, 'node']);
+    assert.deepEqual(
+      config.parserOptions,
+      {
+        ...baseConfig.parserOptions,
+        ecmaFeatures: {
+          ...baseConfig.parserOptions.ecmaFeatures,
+          globalReturn: true,
+          impliedStrict: true
+        }
+      }
+    );
   });
 });

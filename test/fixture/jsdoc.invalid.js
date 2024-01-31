@@ -14,10 +14,8 @@ function settings(bool, str, num) {
  * jsdoc/check-examples
  *
  * @return {Boolean}
- *
  * @example
  *  checkExamples();
- *
  * @example  checkExamples();
  */
 function checkExamples() {

@@ -2,9 +2,9 @@ const assert = require('assert');
 const path = require('path');
 const {findRules, runLint, validateConfig} = require('./lib');
 
-const configFile = path.resolve(__dirname, '../lib/import.js');
+const configFile = path.resolve(__dirname, '../lib/stylistic.js');
 
-describe('import', () => {
+describe('stylistic', () => {
 
   it('should be valid.', async () => {
     let err = null;
@@ -23,7 +23,7 @@ describe('import', () => {
 
   it('should not use deprecated rules.', async () => {
     const rules = await findRules('deprecated', configFile, {
-      filterPrefix: /^import\//
+      filterPrefix: /^@stylistic\//
     });
 
     assert(Array.isArray(rules));
@@ -32,15 +32,29 @@ describe('import', () => {
 
   it('should not be unused rules.', async () => {
     const rules = await findRules('unused', configFile, {
-      filterPrefix: /^import\//
+      filterPrefix: /^@stylistic\//
     });
 
     assert(Array.isArray(rules));
     assert.deepEqual(rules, []);
   });
 
-  it('should has some errors and warnings in import.invalid.js', async () => {
-    const file = path.resolve(__dirname, './fixture/import.invalid.js');
+  it('should has no errors and no warnings in stylistic.valid.js', async () => {
+    const file = path.resolve(__dirname, './fixture/stylistic.valid.js');
+    const results = await runLint(file, configFile, {
+      overrideConfig: {
+        parserOptions: {
+          ecmaVersion: 'latest'
+        }
+      }
+    });
+
+    assert.deepEqual(results.errors, []);
+    assert.deepEqual(results.warnings, []);
+  });
+
+  it('should has some errors and warnings in stylistic.invalid.js', async () => {
+    const file = path.resolve(__dirname, './fixture/stylistic.invalid.js');
     const results = await runLint(file, configFile, {
       overrideConfig: {
         parserOptions: {
@@ -50,20 +64,12 @@ describe('import', () => {
     });
 
     assert.deepEqual(results.errors, [
-      'import/no-absolute-path',
-      'import/no-webpack-loader-syntax',
-      'import/no-self-import',
-      // 'import/no-cycle'
-      'import/no-mutable-exports',
-      'import/no-amd',
-      'import/first',
-      'import/newline-after-import',
-      'import/no-useless-path-segments',
-      'import/no-anonymous-default-export'
+      '@stylistic/function-paren-newline',
+      '@stylistic/lines-between-class-members',
+      '@stylistic/newline-per-chained-call',
+      '@stylistic/object-curly-newline'
     ]);
-    assert.deepEqual(results.warnings, [
-      'import/no-dynamic-require'
-    ]);
+    assert.deepEqual(results.warnings, []);
   });
 
 });

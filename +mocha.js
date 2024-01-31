@@ -1,5 +1,7 @@
+const path = require('path');
+
 module.exports = {
   'extends': [
-    './lib/mocha.js'
+    path.resolve(__dirname, 'lib', 'mocha.js')
   ]
 };

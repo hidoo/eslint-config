@@ -7,6 +7,7 @@ module.exports = {
     // for lib
     {
       'files': [
+        '*.js',
         'lib/**/*.js',
         'test/lib/**/*.js'
       ],
@@ -20,10 +21,24 @@ module.exports = {
         '**/*.test.js'
       ],
       'extends': [
-        './+mocha.js'
+        './+mocha.js',
+        './+node.js'
       ]
     },
     // for fixtures
+    {
+      'files': [
+        'test/fixture/*.js'
+      ],
+      'extends': [
+        './+node.js'
+      ],
+      'rules': {
+        'no-undef': 'off',
+        'no-unused-vars': 'off',
+        'import/no-unresolved': 'off'
+      }
+    },
     {
       files: [
         'test/fixture/base.*.js'
@@ -39,16 +54,12 @@ module.exports = {
         'test/fixture/import.*.js'
       ],
       rules: {
-        'no-var': 'off',
-        'no-unused-vars': 'off'
+        'no-var': 'off'
       }
     },
     {
       'files': [
         'test/fixture/node.*.js'
-      ],
-      'extends': [
-        './+node.js'
       ],
       'rules': {
         'no-var': 'off',

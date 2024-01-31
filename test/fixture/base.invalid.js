@@ -9,7 +9,7 @@ function functionParenNewlineA(arg1,
   arg2,
   arg3
 ) {
-  return true;
+  return true ;
 }
 
 function functionParenNewlineB(arg1, arg2,
