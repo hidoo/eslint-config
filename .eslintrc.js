@@ -1,7 +1,10 @@
+const path = require('path');
+
 module.exports = {
   'root': true,
   'extends': [
-    './index.js'
+    path.resolve(__dirname, 'index.js'),
+    path.resolve(__dirname, '+stylistic.js')
   ],
   'overrides': [
     // for lib
@@ -58,10 +61,10 @@ module.exports = {
       }
     },
     {
-      'files': [
+      files: [
         'test/fixture/node.*.js'
       ],
-      'rules': {
+      rules: {
         'no-var': 'off',
         'no-unused-vars': 'off'
       }

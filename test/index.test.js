@@ -18,6 +18,7 @@ describe('@hidoo/eslint-config', () => {
       useEslintrc: false,
       ignore: false
     });
+
     baseConfig = await eslint.calculateConfigForFile('_.js');
   });
 

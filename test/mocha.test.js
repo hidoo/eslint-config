@@ -21,7 +21,7 @@ describe('mocha', () => {
     assert(err === null);
   });
 
-  it('should not use deprecated rules.', async() => {
+  it('should not use deprecated rules.', async () => {
     const rules = await findRules('deprecated', configFile, {
       filterPrefix: /^mocha\//
     });
@@ -30,7 +30,7 @@ describe('mocha', () => {
     assert.deepEqual(rules, []);
   });
 
-  it('should not be unused rules.', async() => {
+  it('should not be unused rules.', async () => {
     const rules = await findRules('unused', configFile, {
       filterPrefix: /^mocha\//
     });
