@@ -79,7 +79,7 @@ module.exports = {
 ## Test
 
 ```sh
-$ yarn test
+$ pnpm test
 ```
 
 ## License
