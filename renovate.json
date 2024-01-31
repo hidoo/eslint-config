@@ -1,19 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "extends": [
+    "config:recommended",
+    "schedule:earlyMondays",
+    ":pinAllExceptPeerDependencies",
+    ":automergeMinor",
+    ":maintainLockFilesMonthly"
+  ],
   "timezone": "Asia/Tokyo",
-  "labels": ["renovate"],
-  "schedule": ["every weekend"],
-  "patch": {
-    "automerge": true
-  },
-  "lockFileMaintenance": {
-    "enabled": true
-  },
-  "packageRules": [
-    {
-      "updateTypes": ["major"],
-      "labels": ["major update"]
-    }
-  ]
+  "labels": ["renovate"]
 }
