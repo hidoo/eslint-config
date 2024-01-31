@@ -1,4 +1,5 @@
 {
+  "$schema": "https://json.schemastore.org/mocharc.json",
   "recursive": true,
   "ui": "bdd",
   "timeout": 4000,
