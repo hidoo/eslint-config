@@ -1,11 +1,10 @@
 const assert = require('assert');
 const path = require('path');
-const {findRules, runLint, validateConfig} = require('./lib');
+const { findRules, runLint, validateConfig } = require('./lib');
 
 const configFile = path.resolve(__dirname, '../lib/mocha.js');
 
 describe('mocha', () => {
-
   it('should be valid.', async () => {
     let err = null;
 
@@ -13,8 +12,7 @@ describe('mocha', () => {
       const config = await validateConfig(configFile);
 
       assert(config);
-    }
-    catch (error) {
+    } catch (error) {
       err = error;
     }
 
@@ -63,10 +61,7 @@ describe('mocha', () => {
       }
     });
 
-    assert.deepEqual(results.errors, [
-      'mocha/prefer-arrow-callback'
-    ]);
+    assert.deepEqual(results.errors, ['mocha/prefer-arrow-callback']);
     assert.deepEqual(results.warnings, []);
   });
-
 });

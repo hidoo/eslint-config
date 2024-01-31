@@ -1,4 +1,4 @@
-const {ESLint} = require('eslint');
+const { ESLint } = require('eslint');
 
 /**
  * validate config file
@@ -7,7 +7,7 @@ const {ESLint} = require('eslint');
  * @return {Promise<Object>}
  */
 module.exports = async function validateConfig(configFile) {
-  const eslint = new ESLint({useEslintrc: true});
+  const eslint = new ESLint({ useEslintrc: true });
   const config = await eslint.calculateConfigForFile(configFile);
 
   return config;

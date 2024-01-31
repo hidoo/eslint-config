@@ -1,11 +1,10 @@
 const assert = require('assert');
 const path = require('path');
-const {findRules, runLint, validateConfig} = require('./lib');
+const { findRules, runLint, validateConfig } = require('./lib');
 
 const configFile = path.resolve(__dirname, '../lib/jsdoc.js');
 
 describe('jsdoc', () => {
-
   it('should be valid.', async () => {
     let err = null;
 
@@ -13,8 +12,7 @@ describe('jsdoc', () => {
       const config = await validateConfig(configFile);
 
       assert(config);
-    }
-    catch (error) {
+    } catch (error) {
       err = error;
     }
 
@@ -63,5 +61,4 @@ describe('jsdoc', () => {
       'jsdoc/check-tag-names'
     ]);
   });
-
 });

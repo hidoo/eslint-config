@@ -1,11 +1,10 @@
 const assert = require('assert');
 const path = require('path');
-const {findRules, runLint, validateConfig} = require('./lib');
+const { findRules, runLint, validateConfig } = require('./lib');
 
 const configFile = path.resolve(__dirname, '../lib/node.js');
 
 describe('node', () => {
-
   it('should be valid.', async () => {
     let err = null;
 
@@ -13,8 +12,7 @@ describe('node', () => {
       const config = await validateConfig(configFile);
 
       assert(config);
-    }
-    catch (error) {
+    } catch (error) {
       err = error;
     }
 
@@ -70,10 +68,6 @@ describe('node', () => {
       'node/no-path-concat',
       'node/no-process-exit'
     ]);
-    assert.deepEqual(results.warnings, [
-      'node/no-process-env',
-      'node/no-sync'
-    ]);
+    assert.deepEqual(results.warnings, ['node/no-process-env', 'node/no-sync']);
   });
-
 });

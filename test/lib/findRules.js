@@ -24,23 +24,20 @@ module.exports = async function findRules(
   options = {}
 ) {
   const ruleFinder = await getRuleFinder(configFile);
-  const {filterPrefix} = Object.assign(defaultOptions, options);
+  const { filterPrefix } = Object.assign(defaultOptions, options);
   let rules = [];
 
   if (type === 'unused') {
     rules = ruleFinder.getUnusedRules();
-  }
-  else if (type === 'deprecated') {
+  } else if (type === 'deprecated') {
     rules = ruleFinder.getDeprecatedRules();
-  }
-  else {
+  } else {
     throw new TypeError('Argument "type" is not supported value.');
   }
 
   if (filterPrefix instanceof RegExp) {
     return rules.filter((rule) => filterPrefix.test(rule));
-  }
-  else if (typeof filterPrefix === 'string' && filterPrefix !== '') {
+  } else if (typeof filterPrefix === 'string' && filterPrefix !== '') {
     return rules.filter((rule) => rule.indexOf(filterPrefix) === 0); // eslint-disable-line no-magic-numbers
   }
   return rules;

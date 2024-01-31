@@ -1,11 +1,10 @@
 const assert = require('assert');
 const path = require('path');
-const {findRules, runLint, validateConfig} = require('./lib');
+const { findRules, runLint, validateConfig } = require('./lib');
 
 const configFile = path.resolve(__dirname, '../lib/base.js');
 
 describe('base', () => {
-
   it('should be valid.', async () => {
     let err = null;
 
@@ -13,8 +12,7 @@ describe('base', () => {
       const config = await validateConfig(configFile);
 
       assert(config);
-    }
-    catch (error) {
+    } catch (error) {
       err = error;
     }
 
@@ -64,5 +62,4 @@ describe('base', () => {
     ]);
     assert.deepEqual(results.warnings, []);
   });
-
 });

@@ -1,11 +1,10 @@
 const assert = require('assert');
 const path = require('path');
-const {findRules, runLint, validateConfig} = require('./lib');
+const { findRules, runLint, validateConfig } = require('./lib');
 
 const configFile = path.resolve(__dirname, '../lib/import.js');
 
 describe('import', () => {
-
   it('should be valid.', async () => {
     let err = null;
 
@@ -13,8 +12,7 @@ describe('import', () => {
       const config = await validateConfig(configFile);
 
       assert(config);
-    }
-    catch (error) {
+    } catch (error) {
       err = error;
     }
 
@@ -61,9 +59,6 @@ describe('import', () => {
       'import/no-useless-path-segments',
       'import/no-anonymous-default-export'
     ]);
-    assert.deepEqual(results.warnings, [
-      'import/no-dynamic-require'
-    ]);
+    assert.deepEqual(results.warnings, ['import/no-dynamic-require']);
   });
-
 });

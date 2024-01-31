@@ -1,4 +1,4 @@
-const {ESLint} = require('eslint');
+const { ESLint } = require('eslint');
 
 /**
  * options
@@ -29,7 +29,11 @@ const defaultOptions = {
  * @param {Object} options options
  * @return {Promise<Object>} object has list that each severity messages
  */
-module.exports = async function runLint(patterns = '', configFile = '', options = {}) {
+module.exports = async function runLint(
+  patterns = '',
+  configFile = '',
+  options = {}
+) {
   const eslint = new ESLint({
     ...defaultOptions,
     ...options,
@@ -37,33 +41,34 @@ module.exports = async function runLint(patterns = '', configFile = '', options 
   });
   const results = await eslint.lintFiles(patterns);
 
-  return results.reduce((prev, {messages}) => {
-    const errors = new Set(prev.errors);
-    const warnings = new Set(prev.warnings);
-    const unknown = new Set(prev.unknown);
+  return results.reduce(
+    (prev, { messages }) => {
+      const errors = new Set(prev.errors);
+      const warnings = new Set(prev.warnings);
+      const unknown = new Set(prev.unknown);
 
-    messages.forEach((message) => {
-      const {fatal, ruleId, severity} = message;
+      messages.forEach((message) => {
+        const { fatal, ruleId, severity } = message;
 
-      if (fatal) {
-        throw Error(message.message);
-      }
+        if (fatal) {
+          throw Error(message.message);
+        }
 
-      if (severity === SEVERITY.ERROR) {
-        errors.add(ruleId);
-      }
-      else if (severity === SEVERITY.WARNING) {
-        warnings.add(ruleId);
-      }
-      else {
-        unknown.push(ruleId);
-      }
-    });
+        if (severity === SEVERITY.ERROR) {
+          errors.add(ruleId);
+        } else if (severity === SEVERITY.WARNING) {
+          warnings.add(ruleId);
+        } else {
+          unknown.push(ruleId);
+        }
+      });
 
-    return {
-      errors: [...errors.values()],
-      warnings: [...warnings.values()],
-      unknown: [...unknown]
-    };
-  }, {errors: [], warnings: [], unknown: []});
+      return {
+        errors: [...errors.values()],
+        warnings: [...warnings.values()],
+        unknown: [...unknown]
+      };
+    },
+    { errors: [], warnings: [], unknown: [] }
+  );
 };

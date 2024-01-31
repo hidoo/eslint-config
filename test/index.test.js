@@ -1,7 +1,7 @@
 const assert = require('assert');
 const path = require('path');
-const {ESLint} = require('eslint');
-const {validateConfig} = require('./lib');
+const { ESLint } = require('eslint');
+const { validateConfig } = require('./lib');
 
 const configFile = path.resolve(__dirname, '../index.js');
 
@@ -11,9 +11,7 @@ describe('@hidoo/eslint-config', () => {
   before(async () => {
     const eslint = new ESLint({
       baseConfig: {
-        'extends': [
-          configFile
-        ]
+        extends: [configFile]
       },
       useEslintrc: false,
       ignore: false
@@ -29,8 +27,7 @@ describe('@hidoo/eslint-config', () => {
       const config = await validateConfig(configFile);
 
       assert(config);
-    }
-    catch (error) {
+    } catch (error) {
       err = error;
     }
 
@@ -40,10 +37,7 @@ describe('@hidoo/eslint-config', () => {
   it('should use @babel/eslint-parser with "@hidoo/eslint-config/+babel".', async () => {
     const eslint = new ESLint({
       baseConfig: {
-        'extends': [
-          configFile,
-          path.resolve(__dirname, '../+babel.js')
-        ]
+        extends: [configFile, path.resolve(__dirname, '../+babel.js')]
       },
       useEslintrc: false,
       ignore: false
@@ -55,23 +49,17 @@ describe('@hidoo/eslint-config', () => {
     assert.deepEqual(config.env, baseConfig.env);
     assert.deepEqual(config.settings, baseConfig.settings);
     assert.deepEqual(config.plugins, baseConfig.plugins);
-    assert.deepEqual(
-      config.parserOptions,
-      {
-        ...baseConfig.parserOptions,
-        requireConfigFile: false
-      }
-    );
+    assert.deepEqual(config.parserOptions, {
+      ...baseConfig.parserOptions,
+      requireConfigFile: false
+    });
     assert.deepEqual(config.rules, baseConfig.rules);
   });
 
   it('should use settings for mocha with "@hidoo/eslint-config/+mocha".', async () => {
     const eslint = new ESLint({
       baseConfig: {
-        'extends': [
-          configFile,
-          path.resolve(__dirname, '../+mocha.js')
-        ]
+        extends: [configFile, path.resolve(__dirname, '../+mocha.js')]
       },
       useEslintrc: false,
       ignore: false
@@ -79,7 +67,7 @@ describe('@hidoo/eslint-config', () => {
 
     const config = await eslint.calculateConfigForFile('_.js');
 
-    assert.deepEqual(config.env, {...baseConfig.env, mocha: true});
+    assert.deepEqual(config.env, { ...baseConfig.env, mocha: true });
     assert.deepEqual(config.settings, baseConfig.settings);
     assert.deepEqual(config.plugins, [...baseConfig.plugins, 'mocha']);
     assert.deepEqual(config.parserOptions, baseConfig.parserOptions);
@@ -88,10 +76,7 @@ describe('@hidoo/eslint-config', () => {
   it('should use settings for Node.js with "@hidoo/eslint-config/+node".', async () => {
     const eslint = new ESLint({
       baseConfig: {
-        'extends': [
-          configFile,
-          path.resolve(__dirname, '../+node.js')
-        ]
+        extends: [configFile, path.resolve(__dirname, '../+node.js')]
       },
       useEslintrc: false,
       ignore: false
@@ -99,19 +84,16 @@ describe('@hidoo/eslint-config', () => {
 
     const config = await eslint.calculateConfigForFile('_.js');
 
-    assert.deepEqual(config.env, {...baseConfig.env, node: true});
+    assert.deepEqual(config.env, { ...baseConfig.env, node: true });
     assert.deepEqual(config.settings, baseConfig.settings);
     assert.deepEqual(config.plugins, [...baseConfig.plugins, 'node']);
-    assert.deepEqual(
-      config.parserOptions,
-      {
-        ...baseConfig.parserOptions,
-        ecmaFeatures: {
-          ...baseConfig.parserOptions.ecmaFeatures,
-          globalReturn: true,
-          impliedStrict: true
-        }
+    assert.deepEqual(config.parserOptions, {
+      ...baseConfig.parserOptions,
+      ecmaFeatures: {
+        ...baseConfig.parserOptions.ecmaFeatures,
+        globalReturn: true,
+        impliedStrict: true
       }
-    );
+    });
   });
 });

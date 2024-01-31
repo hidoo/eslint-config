@@ -1,11 +1,10 @@
 const assert = require('assert');
 const path = require('path');
-const {findRules, runLint, validateConfig} = require('./lib');
+const { findRules, runLint, validateConfig } = require('./lib');
 
 const configFile = path.resolve(__dirname, '../lib/eslint-comments.js');
 
 describe('eslint-comments', () => {
-
   it('should be valid.', async () => {
     let err = null;
 
@@ -13,8 +12,7 @@ describe('eslint-comments', () => {
       const config = await validateConfig(configFile);
 
       assert(config);
-    }
-    catch (error) {
+    } catch (error) {
       err = error;
     }
 
@@ -48,13 +46,13 @@ describe('eslint-comments', () => {
   });
 
   it('should has some errors and warnings in eslint-comments.invalid.js', async () => {
-    const file = path.resolve(__dirname, './fixture/eslint-comments.invalid.js');
+    const file = path.resolve(
+      __dirname,
+      './fixture/eslint-comments.invalid.js'
+    );
     const results = await runLint(file, configFile);
 
-    assert.deepEqual(results.errors, [
-      'eslint-comments/no-unused-disable'
-    ]);
+    assert.deepEqual(results.errors, ['eslint-comments/no-unused-disable']);
     assert.deepEqual(results.warnings, []);
   });
-
 });
