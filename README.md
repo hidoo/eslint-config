@@ -22,13 +22,24 @@ module.exports = {
 };
 ```
 
-### with babel-eslint
+### with @babel/eslint-parser
 
 ```js
 module.exports = {
   'extends': [
     '@hidoo/eslint-config',
     '@hidoo/eslint-config/+babel'
+  ]
+};
+```
+
+### with ESLint Stylistic
+
+```js
+module.exports = {
+  'extends': [
+    '@hidoo/eslint-config',
+    '@hidoo/eslint-config/+stylistic'
   ]
 };
 ```
