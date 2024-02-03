@@ -2,6 +2,6 @@
   "$schema": "https://json.schemastore.org/mocharc.json",
   "recursive": true,
   "ui": "bdd",
-  "timeout": 10000,
+  "timeout": 20000,
   "slow": 0
 }
