@@ -36,6 +36,14 @@ module.exports = {
 };
 ```
 
+### with Prettier
+
+```js
+module.exports = {
+  extends: ['@hidoo/eslint-config', '@hidoo/eslint-config/+prettier']
+};
+```
+
 ### for Mocha
 
 ```js
