@@ -1,3 +1,12 @@
+# [1.1.0](https://github.com/hidoo/eslint-config/compare/v1.0.0...v1.1.0) (2024-02-03)
+
+
+### Features
+
+* add +prettier config ([e65febc](https://github.com/hidoo/eslint-config/commit/e65febc10e33528a4f48c95e3f23023db7ec6193))
+
+
+
 # [1.0.0](https://github.com/hidoo/eslint-config/compare/v0.7.0...v1.0.0) (2024-01-31)
 
 
