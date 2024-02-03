@@ -2,22 +2,28 @@ const path = require('path');
 
 module.exports = {
   root: true,
-  extends: [path.resolve(__dirname, 'index.js'), 'prettier'],
+  extends: [
+    path.resolve(__dirname, 'index.js'),
+    path.resolve(__dirname, '+prettier.js')
+  ],
   overrides: [
     // for lib
     {
       files: ['*.js', 'lib/**/*.js', 'test/lib/**/*.js'],
-      extends: ['./+node.js']
+      extends: [path.resolve(__dirname, '+node.js')]
     },
     // for mocha
     {
       files: ['**/*.test.js'],
-      extends: ['./+mocha.js', './+node.js']
+      extends: [
+        path.resolve(__dirname, '+mocha.js'),
+        path.resolve(__dirname, '+node.js')
+      ]
     },
     // for fixtures
     {
       files: ['test/fixture/*.js'],
-      extends: ['./+node.js'],
+      extends: [path.resolve(__dirname, '+node.js')],
       rules: {
         'no-undef': 'off',
         'no-unused-vars': 'off',
@@ -49,11 +55,11 @@ module.exports = {
     },
     {
       files: ['test/fixture/mocha.*.js'],
-      extends: ['./+mocha.js']
+      extends: [path.resolve(__dirname, '+mocha.js')]
     },
     {
       files: ['test/fixture/sort-class-members.*.js'],
-      extends: ['./+babel.js'],
+      extends: [path.resolve(__dirname, '+babel.js')],
       rules: {
         'no-var': 'off',
         'no-unused-vars': 'off'
