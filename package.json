@@ -68,7 +68,7 @@
     "lint-staged": "15.2.2",
     "mocha": "10.3.0",
     "prettier": "3.2.5",
-    "renovate": "37.163.0"
+    "renovate": "37.183.0"
   },
   "peerDependencies": {
     "@babel/core": ">=7.2.0",
