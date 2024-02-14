@@ -3,10 +3,24 @@
   "extends": [
     "config:recommended",
     "schedule:earlyMondays",
-    ":pinAllExceptPeerDependencies",
     ":automergeMinor",
-    ":maintainLockFilesMonthly"
+    ":automergePr",
+    ":maintainLockFilesMonthly",
+    ":label(renovate)",
+    ":pinAllExceptPeerDependencies",
+    ":timezone(Asia/Tokyo)"
   ],
-  "timezone": "Asia/Tokyo",
-  "labels": ["renovate"]
+  "packageRules": [
+    {
+      "extends": ["monorepo:commitlint"],
+      "groupName": "commitlint monorepo",
+      "matchUpdateTypes": ["digest", "patch", "minor", "major"],
+      "automerge": false
+    },
+    {
+      "groupName": "devtool packages",
+      "matchPackageNames": ["husky", "lint-staged"],
+      "automerge": false
+    }
+  ]
 }
