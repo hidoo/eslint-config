@@ -34,8 +34,8 @@ dependencies:
     specifier: 11.1.0
     version: 11.1.0(eslint@8.56.0)
   eslint-plugin-sort-class-members:
-    specifier: 1.19.0
-    version: 1.19.0(eslint@8.56.0)
+    specifier: 1.20.0
+    version: 1.20.0(eslint@8.56.0)
 
 devDependencies:
   '@babel/core':
@@ -4203,8 +4203,8 @@ packages:
       semver: 6.3.1
     dev: false
 
-  /eslint-plugin-sort-class-members@1.19.0(eslint@8.56.0):
-    resolution: {integrity: sha512-YayvASA1bavdPeRU9FMPnale2+Oi3aMcHGVC5EUm9b671oxm7ahvR+q8BfsU2aV+KAFezNfu47VPgdZK6gwYPw==}
+  /eslint-plugin-sort-class-members@1.20.0(eslint@8.56.0):
+    resolution: {integrity: sha512-xNaik4GQ/pRwd1soIVI28HEXZbrWoLR5krau2+E8YcHj7N09UviPg5mYhf/rELG29bIFJdXDOFJazN90+luMOw==}
     engines: {node: '>=4.0.0'}
     peerDependencies:
       eslint: '>=0.8.0'
