@@ -32,7 +32,7 @@
   "scripts": {
     "format": "prettier --write .",
     "preinstall": "npx only-allow pnpm",
-    "prepare": "husky",
+    "prepare": "git config --local core.hooksPath .githooks",
     "test": "pnpm run --sequential '/^test:[^:]+$/'",
     "test:lint": "pnpm run --sequential '/^test:lint:[^:]+$/'",
     "test:lint:js": "eslint .",
@@ -64,7 +64,6 @@
     "cross-env": "7.0.3",
     "eslint": "8.56.0",
     "eslint-find-rules": "4.1.0",
-    "husky": "9.0.11",
     "lint-staged": "15.2.2",
     "mocha": "10.3.0",
     "prettier": "3.2.5",
