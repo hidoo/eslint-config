@@ -19,7 +19,7 @@
     },
     {
       "groupName": "devtool packages",
-      "matchPackageNames": ["husky", "lint-staged"],
+      "matchPackageNames": ["lint-staged"],
       "automerge": false
     }
   ]
