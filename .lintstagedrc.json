@@ -1,6 +1,5 @@
 {
   "$schema": "https://json.schemastore.org/lintstagedrc.schema.json",
   "**/*.js": ["eslint"],
-  "**/*.{js,json}": ["prettier --write"],
-  "renovate.json": "renovate-config-validator"
+  "**/*.{js,json}": ["prettier --write"]
 }
