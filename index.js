@@ -1,9 +1,11 @@
 const path = require('path');
-const baseConfig = require('./lib/base');
+const { env, parserOptions } = require('./lib/base');
 
 module.exports = {
-  ...baseConfig,
+  env,
+  parserOptions,
   extends: [
+    path.resolve(__dirname, 'lib', 'base.js'),
     path.resolve(__dirname, 'lib', 'eslint-comments.js'),
     path.resolve(__dirname, 'lib', 'import.js'),
     path.resolve(__dirname, 'lib', 'jsdoc.js'),
