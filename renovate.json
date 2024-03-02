@@ -8,6 +8,7 @@
     ":maintainLockFilesMonthly",
     ":label(renovate)",
     ":pinAllExceptPeerDependencies",
+    ":prHourlyLimitNone",
     ":timezone(Asia/Tokyo)"
   ],
   "packageRules": [
