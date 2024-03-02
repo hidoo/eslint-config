@@ -1,3 +1,23 @@
+# [1.2.0](https://github.com/hidoo/eslint-config/compare/v1.1.0...v1.2.0) (2024-03-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @babel/eslint-parser to v7.23.10 ([262724a](https://github.com/hidoo/eslint-config/commit/262724a9f11a5f716b6bf89f3719adc0b2696a4e))
+* **deps:** update dependency @stylistic/eslint-plugin to v1.6.2 ([0d360ec](https://github.com/hidoo/eslint-config/commit/0d360ec9c78d380f6363e43b2a774d074f09822c))
+* **deps:** update dependency eslint-plugin-jsdoc to v48.0.6 ([1f5ba89](https://github.com/hidoo/eslint-config/commit/1f5ba897646cf25c054d6e1b9a15d97351ee4081))
+* **deps:** update dependency eslint-plugin-jsdoc to v48.1.0 ([a5de13c](https://github.com/hidoo/eslint-config/commit/a5de13cb17d1eeb8adab75815e2877724c379886))
+* **deps:** update dependency eslint-plugin-mocha to v10.3.0 ([794ce47](https://github.com/hidoo/eslint-config/commit/794ce47643ec3414c1c44a00eafb134b8e11e393))
+* **deps:** update dependency eslint-plugin-sort-class-members to v1.20.0 ([7220fad](https://github.com/hidoo/eslint-config/commit/7220fadc56a5d843432b65dd03ad20b180f59786))
+* fix basic config issues ([1d66ca5](https://github.com/hidoo/eslint-config/commit/1d66ca540c5b83c4fe711fdecbca3a9f1a35b292))
+
+
+### Features
+
+* **stylistic:** enable jsx-pascal-case rule ([010c45a](https://github.com/hidoo/eslint-config/commit/010c45ac1a9f96b6f044c11bdc96fb38f2bbfb01))
+
+
+
 # [1.1.0](https://github.com/hidoo/eslint-config/compare/v1.0.0...v1.1.0) (2024-02-03)
 
 
