@@ -71,12 +71,6 @@
     "@babel/core": ">=7.2.0",
     "eslint": ">=8.0.0"
   },
-  "pnpm": {
-    "overrides": {
-      "mem": "^8.0.0",
-      "minimist": "^1.2.5"
-    }
-  },
   "author": "hidoo",
   "repository": {
     "type": "git",

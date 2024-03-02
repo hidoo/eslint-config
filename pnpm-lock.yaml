@@ -4,10 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  mem: ^8.0.0
-  minimist: ^1.2.5
-
 dependencies:
   '@babel/eslint-parser':
     specifier: 7.23.10
