@@ -37,6 +37,10 @@ module.exports = {
       }
     },
     {
+      files: ['test/fixture/compatibility.*.js'],
+      extends: [path.resolve(__dirname, '+compatibility.js')]
+    },
+    {
       files: [
         'test/fixture/eslint-comments.*.js',
         'test/fixture/jsdoc.*.js',
