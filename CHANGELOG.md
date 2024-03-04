@@ -1,3 +1,18 @@
+# [1.3.0](https://github.com/hidoo/eslint-config/compare/v1.2.0...v1.3.0) (2024-03-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @stylistic/eslint-plugin to v1.6.3 ([7ef0a25](https://github.com/hidoo/eslint-config/commit/7ef0a258f6ebbb877d439f5c086d3cdfb7428c6c))
+* **deps:** update dependency eslint-plugin-jsdoc to v48.2.0 ([24c2999](https://github.com/hidoo/eslint-config/commit/24c2999ec40bee98d89b686745f8d09061e366ce))
+
+
+### Features
+
+* add config to lint the compatibility ([af94e71](https://github.com/hidoo/eslint-config/commit/af94e713bd0d2398f9a73054427ceb9a0412dd0b))
+
+
+
 # [1.2.0](https://github.com/hidoo/eslint-config/compare/v1.1.0...v1.2.0) (2024-03-02)
 
 
