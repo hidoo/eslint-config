@@ -44,6 +44,14 @@ module.exports = {
 };
 ```
 
+### with compatibility check
+
+```js
+module.exports = {
+  extends: ['@hidoo/eslint-config', '@hidoo/eslint-config/+compatibility']
+};
+```
+
 ### for Mocha
 
 ```js

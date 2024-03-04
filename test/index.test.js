@@ -56,6 +56,23 @@ describe('@hidoo/eslint-config', () => {
     assert.deepEqual(config.rules, baseConfig.rules);
   });
 
+  it('should use settings for compatibility check with "@hidoo/eslint-config/+compatibility".', async () => {
+    const eslint = new ESLint({
+      baseConfig: {
+        extends: [configFile, path.resolve(__dirname, '../+compatibility.js')]
+      },
+      useEslintrc: false,
+      ignore: false
+    });
+
+    const config = await eslint.calculateConfigForFile('_.js');
+
+    assert.deepEqual(config.env, baseConfig.env);
+    assert.deepEqual(config.settings, baseConfig.settings);
+    assert.deepEqual(config.plugins, [...baseConfig.plugins, 'compat']);
+    assert.deepEqual(config.parserOptions, baseConfig.parserOptions);
+  });
+
   it('should use settings for mocha with "@hidoo/eslint-config/+mocha".', async () => {
     const eslint = new ESLint({
       baseConfig: {
