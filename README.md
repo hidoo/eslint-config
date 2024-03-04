@@ -2,7 +2,7 @@
 
 [![Test](https://github.com/hidoo/eslint-config/actions/workflows/test.yml/badge.svg)](https://github.com/hidoo/eslint-config/actions/workflows/test.yml)
 
-Sharable eslint config for my projects.
+Shareable config for ESlint.
 
 ## Installation
 
