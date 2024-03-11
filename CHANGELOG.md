@@ -1,3 +1,14 @@
+## [1.3.1](https://github.com/hidoo/eslint-config/compare/v1.3.0...v1.3.1) (2024-03-11)
+
+
+### Bug Fixes
+
+* **deps:** update dependency eslint-plugin-jsdoc to v48.2.1 ([429a732](https://github.com/hidoo/eslint-config/commit/429a73286ba55575addb5ed8bdeb3091b6bc29f4))
+* **deps:** update dependency eslint-plugin-mocha to v10.4.1 ([7acf893](https://github.com/hidoo/eslint-config/commit/7acf8930fccecc67b0ef68bd983489cd21de4519))
+* fix ERR_INVALID_PACKAGE_TARGET error and add test cases for exporting subpackages ([94a8540](https://github.com/hidoo/eslint-config/commit/94a8540f4c91a5f41acbb9c8a39cb6f178a71df8))
+
+
+
 # [1.3.0](https://github.com/hidoo/eslint-config/compare/v1.2.0...v1.3.0) (2024-03-04)
 
 
