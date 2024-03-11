@@ -45,6 +45,7 @@ describe('@hidoo/eslint-config', () => {
 
     const config = await eslint.calculateConfigForFile('_.js');
 
+    assert(require.resolve('@hidoo/eslint-config/+babel'));
     assert(config.parser.indexOf('@babel/eslint-parser') !== -1);
     assert.deepEqual(config.env, baseConfig.env);
     assert.deepEqual(config.settings, baseConfig.settings);
@@ -67,6 +68,7 @@ describe('@hidoo/eslint-config', () => {
 
     const config = await eslint.calculateConfigForFile('_.js');
 
+    assert(require.resolve('@hidoo/eslint-config/+compatibility'));
     assert.deepEqual(config.env, baseConfig.env);
     assert.deepEqual(config.settings, baseConfig.settings);
     assert.deepEqual(config.plugins, [...baseConfig.plugins, 'compat']);
@@ -84,6 +86,7 @@ describe('@hidoo/eslint-config', () => {
 
     const config = await eslint.calculateConfigForFile('_.js');
 
+    assert(require.resolve('@hidoo/eslint-config/+mocha'));
     assert.deepEqual(config.env, { ...baseConfig.env, mocha: true });
     assert.deepEqual(config.settings, baseConfig.settings);
     assert.deepEqual(config.plugins, [...baseConfig.plugins, 'mocha']);
@@ -101,6 +104,7 @@ describe('@hidoo/eslint-config', () => {
 
     const config = await eslint.calculateConfigForFile('_.js');
 
+    assert(require.resolve('@hidoo/eslint-config/+node'));
     assert.deepEqual(config.env, { ...baseConfig.env, node: true });
     assert.deepEqual(config.settings, baseConfig.settings);
     assert.deepEqual(config.plugins, [...baseConfig.plugins, 'node']);
