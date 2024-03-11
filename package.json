@@ -11,7 +11,7 @@
   "exports": {
     ".": "./index.js",
     "./+babel": "./+babel.js",
-    "/+compatibility": "+compatibility.js",
+    "./+compatibility": "./+compatibility.js",
     "./+mocha": "./+mocha.js",
     "./+node": "./+node.js",
     "./+prettier": "./+prettier.js",
