@@ -50,24 +50,24 @@ describe('node', () => {
     const results = await runLint(file, configFile);
 
     assert.deepEqual(results.errors, [
-      'node/no-callback-literal',
-      'node/exports-style',
-      // 'node/file-extension-in-import',
-      'node/prefer-global/buffer',
-      'node/prefer-global/console',
-      'node/prefer-global/process',
-      'node/prefer-global/text-decoder',
-      'node/prefer-global/text-encoder',
-      'node/prefer-global/url-search-params',
-      'node/prefer-global/url',
-      'node/callback-return',
-      'node/global-require',
-      'node/handle-callback-err',
-      'node/no-mixed-requires',
-      'node/no-new-require',
-      'node/no-path-concat',
-      'node/no-process-exit'
+      'n/no-callback-literal',
+      'n/exports-style',
+      // 'n/file-extension-in-import',
+      'n/prefer-global/buffer',
+      'n/prefer-global/console',
+      'n/prefer-global/process',
+      'n/prefer-global/text-decoder',
+      'n/prefer-global/text-encoder',
+      'n/prefer-global/url-search-params',
+      'n/prefer-global/url',
+      'n/callback-return',
+      'n/global-require',
+      'n/handle-callback-err',
+      'n/no-mixed-requires',
+      'n/no-new-require',
+      'n/no-path-concat',
+      'n/no-process-exit'
     ]);
-    assert.deepEqual(results.warnings, ['node/no-process-env', 'node/no-sync']);
+    assert.deepEqual(results.warnings, ['n/no-process-env', 'n/no-sync']);
   });
 });

@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// node/no-callback-literal
+// n/no-callback-literal
 /* eslint-disable no-undef */
 noCallbackLiteral((error, cb) => {
   if (error) {
@@ -11,19 +11,19 @@ noCallbackLiteral((error, cb) => {
 });
 /* eslint-enable no-undef */
 
-// node/exports-style
+// n/exports-style
 exports.hoge = () => true;
 
-// node/file-extension-in-import
+// n/file-extension-in-import
 // import * as fuga from 'fuga.js';
 
-// node/prefer-global/buffer
-// node/prefer-global/console
-// node/prefer-global/process
-// node/prefer-global/text-decoder
-// node/prefer-global/text-encoder
-// node/prefer-global/url-search-params
-// node/prefer-global/url
+// n/prefer-global/buffer
+// n/prefer-global/console
+// n/prefer-global/process
+// n/prefer-global/text-decoder
+// n/prefer-global/text-encoder
+// n/prefer-global/url-search-params
+// n/prefer-global/url
 /* eslint-disable no-unused-vars */
 const {Buffer} = require('buffer'),
       console = require('console'),
@@ -32,7 +32,7 @@ const {Buffer} = require('buffer'),
       {URLSearchParams, URL} = require('url')
 /* eslint-enable no-unused-vars */
 
-// node/callback-return
+// n/callback-return
 const callbackReturn = (error, callback) => {
   if (error) {
     callback(error);
@@ -40,38 +40,38 @@ const callbackReturn = (error, callback) => {
   return callback();
 };
 
-// node/global-require
+// n/global-require
 /* eslint-disable no-undef */
 if (DEBUG) {
   const globalRequire = require('global-require');
 }
 /* eslint-enable no-undef */
 
-// node/handle-callback-err
+// n/handle-callback-err
 const handleCallbackErr = (error, callback) => {
   return callback();
 };
 
-// node/no-mixed-requires
+// n/no-mixed-requires
 const noMixedRequires = require('no-mixed-requires'),
       noMixedRequiresError = true;
 
-// node/no-new-require
+// n/no-new-require
 const noNewRequire = new require('no-new-require');
 
-// node/no-path-concat
+// n/no-path-concat
 const noPathConcatDirname = __dirname + '/no-path-concat.js';
 const noPathConcatFilename = __filename + '/no-path-concat.js';
 
-// node/no-process-env
+// n/no-process-env
 const noProcessEnv = process.env.NO_PROCESS_ENV === 'invalid';
 
-// node/no-process-exit
+// n/no-process-exit
 /* eslint-disable no-undef, no-process-exit */
 if (noProcessExit) {
   process.exit(1);
 }
 /* eslint-enable no-undef, no-process-exit */
 
-// node/no-sync
+// n/no-sync
 fs.statSync('/path/to/no-sync');
