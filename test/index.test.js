@@ -107,7 +107,7 @@ describe('@hidoo/eslint-config', () => {
     assert(require.resolve('@hidoo/eslint-config/+node'));
     assert.deepEqual(config.env, { ...baseConfig.env, node: true });
     assert.deepEqual(config.settings, baseConfig.settings);
-    assert.deepEqual(config.plugins, [...baseConfig.plugins, 'node']);
+    assert.deepEqual(config.plugins, [...baseConfig.plugins, 'n']);
     assert.deepEqual(config.parserOptions, {
       ...baseConfig.parserOptions,
       ecmaFeatures: {
