@@ -135,3 +135,6 @@ class NoSetterReturn {
 /* eslint-disable no-unused-vars, prefer-named-capture-group */
 const noUselessBackreference = /(\1)/;
 /* eslint-enable no-unused-vars, prefer-named-capture-group */
+
+// unused disable directives
+// eslint-disable-line no-magic-numbers

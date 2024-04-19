@@ -1,4 +1,4 @@
-const { ESLint } = require('eslint');
+import { ESLint } from 'eslint';
 
 /**
  * options
@@ -16,7 +16,6 @@ const SEVERITY = {
  * @type {Object}
  */
 const defaultOptions = {
-  useEslintrc: false,
   ignore: false,
   errorOnUnmatchedPattern: true
 };
@@ -29,15 +28,13 @@ const defaultOptions = {
  * @param {Object} options options
  * @return {Promise<Object>} object has list that each severity messages
  */
-module.exports = async function runLint(
-  patterns = '',
-  configFile = '',
-  options = {}
-) {
+export async function runLint(patterns = '', configFile = '', options = {}) {
+  const { default: config } = await import(configFile);
   const eslint = new ESLint({
     ...defaultOptions,
     ...options,
-    overrideConfigFile: configFile
+    overrideConfigFile: true,
+    baseConfig: [config]
   });
   const results = await eslint.lintFiles(patterns);
 
@@ -46,6 +43,7 @@ module.exports = async function runLint(
       const errors = new Set(prev.errors);
       const warnings = new Set(prev.warnings);
       const unknown = new Set(prev.unknown);
+      const unusedDisableDirectives = new Set(prev.unusedDisableDirectives);
 
       messages.forEach((message) => {
         const { fatal, ruleId, severity } = message;
@@ -54,21 +52,24 @@ module.exports = async function runLint(
           throw Error(message.message);
         }
 
-        if (severity === SEVERITY.ERROR) {
+        if (ruleId === null) {
+          unusedDisableDirectives.add(message.message);
+        } else if (severity === SEVERITY.ERROR) {
           errors.add(ruleId);
         } else if (severity === SEVERITY.WARNING) {
           warnings.add(ruleId);
         } else {
-          unknown.push(ruleId);
+          unknown.add(ruleId);
         }
       });
 
       return {
         errors: [...errors.values()],
         warnings: [...warnings.values()],
-        unknown: [...unknown]
+        unknown: [...unknown.values()],
+        unusedDisableDirectives: [...unusedDisableDirectives.values()]
       };
     },
-    { errors: [], warnings: [], unknown: [] }
+    { errors: [], warnings: [], unknown: [], unusedDisableDirectives: [] }
   );
-};
+}

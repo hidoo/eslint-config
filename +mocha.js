@@ -1,5 +1,1 @@
-const path = require('path');
-
-module.exports = {
-  extends: [path.resolve(__dirname, 'lib', 'mocha.js')]
-};
+export { default } from './lib/mocha.js';

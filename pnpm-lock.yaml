@@ -8,6 +8,9 @@ dependencies:
   '@babel/eslint-parser':
     specifier: 7.24.1
     version: 7.24.1(@babel/core@7.24.4)(eslint@9.0.0)
+  '@eslint/js':
+    specifier: 9.0.0
+    version: 9.0.0
   '@stylistic/eslint-plugin':
     specifier: 1.7.0
     version: 1.7.0(eslint@9.0.0)(typescript@5.4.3)
@@ -32,6 +35,9 @@ dependencies:
   eslint-plugin-sort-class-members:
     specifier: 1.20.0
     version: 1.20.0(eslint@9.0.0)
+  globals:
+    specifier: 15.0.0
+    version: 15.0.0
 
 devDependencies:
   '@babel/core':
@@ -2081,6 +2087,11 @@ packages:
   /globals@14.0.0:
     resolution: {integrity: sha512-oahGvuMGQlPw/ivIYBjVSrWAfWLBeku5tpPE2fOPLi+WHffIWbuh2tCjhyQhTBPMf5E9jDEH4FOmTYgYwbKwtQ==}
     engines: {node: '>=18'}
+
+  /globals@15.0.0:
+    resolution: {integrity: sha512-m/C/yR4mjO6pXDTm9/R/SpYTAIyaUB4EOzcaaMEl7mds7Mshct9GfejiJNQGjHHbdMPey13Kpu4TMbYi9ex1pw==}
+    engines: {node: '>=18'}
+    dev: false
 
   /globalthis@1.0.3:
     resolution: {integrity: sha512-sFdI5LyBiNTHjRd7cGPWapiHWMOXKyuBNX/cWJ3NfzrZQVa8GI/8cofCl74AOVqq9W5kNmguTIzJ/1s2gyI9wA==}

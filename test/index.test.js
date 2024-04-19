@@ -1,120 +1,142 @@
-const assert = require('assert');
-const path = require('path');
-const { ESLint } = require('eslint');
-const { validateConfig } = require('./lib');
+import assert from 'node:assert';
+import { createRequire } from 'node:module';
+import { calculateConfig } from './lib/index.js';
 
-const configFile = path.resolve(__dirname, '../index.js');
+const require = createRequire(import.meta.url);
 
 describe('@hidoo/eslint-config', () => {
   let baseConfig = null;
+  let calculatedBaseConfig = null;
 
   before(async () => {
-    const eslint = new ESLint({
-      baseConfig: {
-        extends: [configFile]
-      },
-      useEslintrc: false,
-      ignore: false
-    });
-
-    baseConfig = await eslint.calculateConfigForFile('_.js');
+    baseConfig = (await import('../index.js')).default;
+    calculatedBaseConfig = await calculateConfig([...baseConfig]);
   });
 
-  it('should be valid.', async () => {
-    let err = null;
-
-    try {
-      const config = await validateConfig(configFile);
-
-      assert(config);
-    } catch (error) {
-      err = error;
-    }
-
-    assert(err === null);
+  it('should be importable.', () => {
+    assert(require.resolve('@hidoo/eslint-config'));
   });
 
-  it('should use @babel/eslint-parser with "@hidoo/eslint-config/+babel".', async () => {
-    const eslint = new ESLint({
-      baseConfig: {
-        extends: [configFile, path.resolve(__dirname, '../+babel.js')]
-      },
-      useEslintrc: false,
-      ignore: false
+  describe('+babel', () => {
+    it('should be importable.', () => {
+      assert(require.resolve('@hidoo/eslint-config/+babel'));
     });
 
-    const config = await eslint.calculateConfigForFile('_.js');
+    it('should use @babel/eslint-parser.', async () => {
+      const calculated = await calculateConfig(
+        [...baseConfig, (await import('../+babel.js')).default],
+        {
+          ignore: false
+        }
+      );
 
-    assert(require.resolve('@hidoo/eslint-config/+babel'));
-    assert(config.parser.indexOf('@babel/eslint-parser') !== -1);
-    assert.deepEqual(config.env, baseConfig.env);
-    assert.deepEqual(config.settings, baseConfig.settings);
-    assert.deepEqual(config.plugins, baseConfig.plugins);
-    assert.deepEqual(config.parserOptions, {
-      ...baseConfig.parserOptions,
-      requireConfigFile: false
+      ['settings', 'plugins', 'rules'].forEach((key) => {
+        assert.deepEqual(calculated[key], calculatedBaseConfig[key]);
+      });
+
+      assert.deepEqual(
+        calculated.languageOptions.parser,
+        (await import('@babel/eslint-parser')).default
+      );
+      assert.deepEqual(
+        calculated.languageOptions.globals,
+        calculatedBaseConfig.languageOptions.globals
+      );
+      assert.deepEqual(calculated.languageOptions.parserOptions, {
+        ...calculatedBaseConfig.languageOptions.parserOptions,
+        requireConfigFile: false
+      });
     });
-    assert.deepEqual(config.rules, baseConfig.rules);
   });
 
-  it('should use settings for compatibility check with "@hidoo/eslint-config/+compatibility".', async () => {
-    const eslint = new ESLint({
-      baseConfig: {
-        extends: [configFile, path.resolve(__dirname, '../+compatibility.js')]
-      },
-      useEslintrc: false,
-      ignore: false
+  describe('+compatibility', () => {
+    it('should be importable.', () => {
+      assert(require.resolve('@hidoo/eslint-config/+compatibility'));
     });
 
-    const config = await eslint.calculateConfigForFile('_.js');
+    it('should use settings for compatibility check.', async () => {
+      const calculated = await calculateConfig(
+        [...baseConfig, (await import('../+compatibility.js')).default],
+        { ignore: false }
+      );
 
-    assert(require.resolve('@hidoo/eslint-config/+compatibility'));
-    assert.deepEqual(config.env, baseConfig.env);
-    assert.deepEqual(config.settings, baseConfig.settings);
-    assert.deepEqual(config.plugins, [...baseConfig.plugins, 'compat']);
-    assert.deepEqual(config.parserOptions, baseConfig.parserOptions);
+      ['globals', 'parserOptions'].forEach((key) => {
+        assert.deepEqual(
+          calculated.languageOptions[key],
+          calculatedBaseConfig.languageOptions[key]
+        );
+      });
+      assert.deepEqual(calculated.settings, calculatedBaseConfig.settings);
+      assert.deepEqual(calculated.plugins, {
+        ...calculatedBaseConfig.plugins,
+        compat: (await import('eslint-plugin-compat')).default
+      });
+    });
   });
 
-  it('should use settings for mocha with "@hidoo/eslint-config/+mocha".', async () => {
-    const eslint = new ESLint({
-      baseConfig: {
-        extends: [configFile, path.resolve(__dirname, '../+mocha.js')]
-      },
-      useEslintrc: false,
-      ignore: false
+  describe('+mocha', () => {
+    it('should be importable.', () => {
+      assert(require.resolve('@hidoo/eslint-config/+mocha'));
     });
 
-    const config = await eslint.calculateConfigForFile('_.js');
+    it('should use settings for mocha.', async () => {
+      const calculated = await calculateConfig(
+        [...baseConfig, (await import('../+mocha.js')).default],
+        { ignore: false }
+      );
 
-    assert(require.resolve('@hidoo/eslint-config/+mocha'));
-    assert.deepEqual(config.env, { ...baseConfig.env, mocha: true });
-    assert.deepEqual(config.settings, baseConfig.settings);
-    assert.deepEqual(config.plugins, [...baseConfig.plugins, 'mocha']);
-    assert.deepEqual(config.parserOptions, baseConfig.parserOptions);
+      assert.deepEqual(
+        calculated.languageOptions.parserOptions,
+        calculatedBaseConfig.languageOptions.parserOptions
+      );
+      assert(Object.keys(calculated.languageOptions.globals).includes('mocha'));
+      assert.deepEqual(calculated.settings, calculatedBaseConfig.settings);
+      assert.deepEqual(calculated.plugins, {
+        ...calculatedBaseConfig.plugins,
+        mocha: (await import('eslint-plugin-mocha')).default
+      });
+    });
   });
 
-  it('should use settings for Node.js with "@hidoo/eslint-config/+node".', async () => {
-    const eslint = new ESLint({
-      baseConfig: {
-        extends: [configFile, path.resolve(__dirname, '../+node.js')]
-      },
-      useEslintrc: false,
-      ignore: false
+  describe('+node', () => {
+    it('should be importable.', () => {
+      assert(require.resolve('@hidoo/eslint-config/+node'));
     });
 
-    const config = await eslint.calculateConfigForFile('_.js');
+    it('should use settings for Node.js.', async () => {
+      const calculated = await calculateConfig(
+        [...baseConfig, (await import('../+node.js')).default],
+        { ignore: false }
+      );
 
-    assert(require.resolve('@hidoo/eslint-config/+node'));
-    assert.deepEqual(config.env, { ...baseConfig.env, node: true });
-    assert.deepEqual(config.settings, baseConfig.settings);
-    assert.deepEqual(config.plugins, [...baseConfig.plugins, 'n']);
-    assert.deepEqual(config.parserOptions, {
-      ...baseConfig.parserOptions,
-      ecmaFeatures: {
-        ...baseConfig.parserOptions.ecmaFeatures,
-        globalReturn: true,
-        impliedStrict: true
-      }
+      assert.deepEqual(calculated.languageOptions.parserOptions, {
+        ...calculatedBaseConfig.languageOptions.parserOptions,
+        ecmaFeatures: {
+          ...calculatedBaseConfig.languageOptions.parserOptions.ecmaFeatures,
+          impliedStrict: true
+        }
+      });
+      assert(
+        Object.keys(calculated.languageOptions.globals).includes('setImmediate')
+      );
+      assert.deepEqual(calculated.settings, calculatedBaseConfig.settings);
+      assert.deepEqual(calculated.plugins, {
+        ...calculatedBaseConfig.plugins,
+        // eslint-disable-next-line id-length
+        n: (await import('eslint-plugin-n')).default
+      });
+    });
+  });
+
+  describe('+prettier', () => {
+    it('should be importable.', () => {
+      assert(require.resolve('@hidoo/eslint-config/+prettier'));
+    });
+  });
+
+  describe('+stylistic', () => {
+    it('should be importable.', () => {
+      assert(require.resolve('@hidoo/eslint-config/+stylistic'));
     });
   });
 });

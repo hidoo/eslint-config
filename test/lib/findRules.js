@@ -1,4 +1,5 @@
-const getRuleFinder = require('eslint-find-rules');
+import { builtinRules } from 'eslint/use-at-your-own-risk';
+import { calculateConfig } from './calculateConfig.js';
 
 /**
  * default options
@@ -10,6 +11,70 @@ const defaultOptions = {
 };
 
 /**
+ * get available rules from config object
+ *
+ * @param {Object} config config object
+ * @return {Map}
+ */
+function getAvailableRules(config = {}) {
+  const pluginRules = new Map();
+
+  if (config.plugins) {
+    Object.entries(config.plugins).forEach(([prefix, { rules }]) => {
+      if (prefix === '@') {
+        return;
+      }
+
+      Object.entries(rules).forEach(([name, rule]) => {
+        pluginRules.set(`${prefix}/${name}`, rule);
+      });
+    });
+  }
+
+  return new Map([...builtinRules, ...pluginRules]);
+}
+
+/**
+ * get deprecated rules
+ *
+ * @param {String} configFile config file path
+ * @return {Array<String>}
+ */
+async function getDeprecatedRules(configFile) {
+  const config = await calculateConfig([(await import(configFile)).default]);
+  const currentRules = Object.keys(config.rules);
+  const deprecatedRules = [];
+
+  getAvailableRules(config).forEach((rule, key) => {
+    if (rule.meta.deprecated && currentRules.includes(key)) {
+      deprecatedRules.push(key);
+    }
+  });
+
+  return deprecatedRules;
+}
+
+/**
+ * get unused rules
+ *
+ * @param {String} configFile config file path
+ * @return {Array<String>}
+ */
+async function getUnusedRules(configFile) {
+  const config = await calculateConfig([(await import(configFile)).default]);
+  const currentRules = Object.keys(config.rules);
+  const unusedRules = [];
+
+  getAvailableRules(config).forEach((rule, key) => {
+    if (!rule.meta.deprecated && !currentRules.includes(key)) {
+      unusedRules.push(key);
+    }
+  });
+
+  return unusedRules;
+}
+
+/**
  * find rules by type
  *
  * @param {String} type type of rules
@@ -18,19 +83,18 @@ const defaultOptions = {
  * @param {String|RegExp} options.filterPrefix filter prefix
  * @return {Promise<Array>} list of ruleIds
  */
-module.exports = async function findRules(
+export async function findRules(
   type = 'deprecated',
   configFile = '',
   options = {}
 ) {
-  const ruleFinder = await getRuleFinder(configFile);
-  const { filterPrefix } = Object.assign(defaultOptions, options);
+  const { filterPrefix } = { ...defaultOptions, ...options };
   let rules = [];
 
   if (type === 'unused') {
-    rules = ruleFinder.getUnusedRules();
+    rules = await getUnusedRules(configFile);
   } else if (type === 'deprecated') {
-    rules = ruleFinder.getDeprecatedRules();
+    rules = await getDeprecatedRules(configFile);
   } else {
     throw new TypeError('Argument "type" is not supported value.');
   }
@@ -41,4 +105,4 @@ module.exports = async function findRules(
     return rules.filter((rule) => rule.indexOf(filterPrefix) === 0); // eslint-disable-line no-magic-numbers
   }
   return rules;
-};
+}
