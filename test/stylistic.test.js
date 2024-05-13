@@ -42,7 +42,10 @@ describe('stylistic', () => {
     const results = await runLint(file, configFile, {
       overrideConfig: {
         parserOptions: {
-          ecmaVersion: 'latest'
+          ecmaVersion: 'latest',
+          ecmaFeatures: {
+            jsx: true
+          }
         }
       }
     });
@@ -56,7 +59,10 @@ describe('stylistic', () => {
     const results = await runLint(file, configFile, {
       overrideConfig: {
         parserOptions: {
-          ecmaVersion: 'latest'
+          ecmaVersion: 'latest',
+          ecmaFeatures: {
+            jsx: true
+          }
         }
       }
     });
@@ -65,7 +71,9 @@ describe('stylistic', () => {
       '@stylistic/function-paren-newline',
       '@stylistic/lines-between-class-members',
       '@stylistic/newline-per-chained-call',
-      '@stylistic/object-curly-newline'
+      '@stylistic/object-curly-newline',
+      '@stylistic/jsx-function-call-newline',
+      '@stylistic/line-comment-position'
     ]);
     assert.deepEqual(results.warnings, []);
   });

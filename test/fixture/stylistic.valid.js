@@ -64,3 +64,25 @@ class LinesBetweenClassMembers {
           propC: {}
         };
 })();
+
+/**
+ * example of @stylistic/jsx-function-call-newline
+ *
+ * @param {Function} render render function
+ * @return {*}
+ */
+function jsxFunctionCallNewLine(render) {
+  render(
+    <div></div>
+  );
+}
+
+/**
+ * example of @stylistic/line-comment-position
+ *
+ * @return {Boolean}
+ */
+function lineCommentPosition() {
+  // valid comment
+  return true;
+}
