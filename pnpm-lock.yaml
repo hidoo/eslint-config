@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@babel/eslint-parser':
-        specifier: 7.24.8
-        version: 7.24.8(@babel/core@7.24.9)(eslint@8.57.0)
+        specifier: 7.25.0
+        version: 7.25.0(@babel/core@7.24.9)(eslint@8.57.0)
       '@stylistic/eslint-plugin':
         specifier: 2.3.0
         version: 2.3.0(eslint@8.57.0)(typescript@5.5.2)
@@ -88,8 +88,8 @@ packages:
     resolution: {integrity: sha512-5e3FI4Q3M3Pbr21+5xJwCv6ZT6KmGkI0vw3Tozy5ODAQFTIWe37iT8Cr7Ice2Ntb+M3iSKCEWMB1MBgKrW3whg==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/eslint-parser@7.24.8':
-    resolution: {integrity: sha512-nYAikI4XTGokU2QX7Jx+v4rxZKhKivaQaREZjuW3mrJrbdWJ5yUfohnoUULge+zEEaKjPYNxhoRgUKktjXtbwA==}
+  '@babel/eslint-parser@7.25.0':
+    resolution: {integrity: sha512-mlcTKuQAjczDRwWLIxv+Q925jaMUO8Jl5dxmWJSSGVYfZ4rKMp8daQvVC3rM1G2v8V+/fO0yIVTSLS+2zcB8rg==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
@@ -2182,7 +2182,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.24.8(@babel/core@7.24.9)(eslint@8.57.0)':
+  '@babel/eslint-parser@7.25.0(@babel/core@7.24.9)(eslint@8.57.0)':
     dependencies:
       '@babel/core': 7.24.9
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
@@ -2338,7 +2338,7 @@ snapshots:
   '@commitlint/is-ignored@19.2.2':
     dependencies:
       '@commitlint/types': 19.0.3
-      semver: 7.6.2
+      semver: 7.6.3
 
   '@commitlint/lint@19.2.2':
     dependencies:
@@ -2410,7 +2410,7 @@ snapshots:
   '@conventional-changelog/git-client@1.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.0.0)':
     dependencies:
       '@types/semver': 7.5.8
-      semver: 7.6.2
+      semver: 7.6.3
     optionalDependencies:
       conventional-commits-filter: 5.0.0
       conventional-commits-parser: 6.0.0
@@ -2580,7 +2580,7 @@ snapshots:
       globby: 11.1.0
       is-glob: 4.0.3
       minimatch: 9.0.5
-      semver: 7.6.2
+      semver: 7.6.3
       ts-api-utils: 1.3.0(typescript@5.5.2)
     optionalDependencies:
       typescript: 5.5.2
@@ -2904,7 +2904,7 @@ snapshots:
       conventional-commits-filter: 5.0.0
       handlebars: 4.7.8
       meow: 13.2.0
-      semver: 7.6.2
+      semver: 7.6.3
 
   conventional-changelog@6.0.0(conventional-commits-filter@5.0.0):
     dependencies:
@@ -3130,7 +3130,7 @@ snapshots:
   eslint-compat-utils@0.5.1(eslint@8.57.0):
     dependencies:
       eslint: 8.57.0
-      semver: 7.6.2
+      semver: 7.6.3
 
   eslint-config-prettier@9.1.0(eslint@8.57.0):
     dependencies:
@@ -3889,7 +3889,7 @@ snapshots:
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
-      semver: 7.6.2
+      semver: 7.6.3
       validate-npm-package-license: 3.0.4
 
   normalize-path@3.0.0: {}
