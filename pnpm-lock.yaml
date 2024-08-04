@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@babel/eslint-parser':
-        specifier: 7.25.0
-        version: 7.25.0(@babel/core@7.24.9)(eslint@8.57.0)
+        specifier: 7.25.1
+        version: 7.25.1(@babel/core@7.25.2)(eslint@8.57.0)
       '@stylistic/eslint-plugin':
         specifier: 2.4.0
         version: 2.4.0(eslint@8.57.0)(typescript@5.5.4)
@@ -40,8 +40,8 @@ importers:
         version: 1.20.0(eslint@8.57.0)
     devDependencies:
       '@babel/core':
-        specifier: 7.24.9
-        version: 7.24.9
+        specifier: 7.25.2
+        version: 7.25.2
       '@commitlint/cli':
         specifier: 19.3.0
         version: 19.3.0(@types/node@22.0.0)(typescript@5.5.4)
@@ -84,12 +84,12 @@ packages:
     resolution: {integrity: sha512-bYcppcpKBvX4znYaPEeFau03bp89ShqNMLs+rmdptMw+heSZh9+z84d2YG+K7cYLbWwzdjtDoW/uqZmPjulClQ==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/core@7.24.9':
-    resolution: {integrity: sha512-5e3FI4Q3M3Pbr21+5xJwCv6ZT6KmGkI0vw3Tozy5ODAQFTIWe37iT8Cr7Ice2Ntb+M3iSKCEWMB1MBgKrW3whg==}
+  '@babel/core@7.25.2':
+    resolution: {integrity: sha512-BBt3opiCOxUr9euZ5/ro/Xv8/V7yJ5bjYMqG/C1YAo8MIKAnumZalCN+msbci3Pigy4lIQfPUpfMM27HMGaYEA==}
     engines: {node: '>=6.9.0'}
 
-  '@babel/eslint-parser@7.25.0':
-    resolution: {integrity: sha512-mlcTKuQAjczDRwWLIxv+Q925jaMUO8Jl5dxmWJSSGVYfZ4rKMp8daQvVC3rM1G2v8V+/fO0yIVTSLS+2zcB8rg==}
+  '@babel/eslint-parser@7.25.1':
+    resolution: {integrity: sha512-Y956ghgTT4j7rKesabkh5WeqgSFZVFwaPR0IWFm7KFHFmmJ4afbG49SmfW4S+GyRPx0Dy5jxEWA5t0rpxfElWg==}
     engines: {node: ^10.13.0 || ^12.13.0 || >=14.0.0}
     peerDependencies:
       '@babel/core': ^7.11.0
@@ -2140,13 +2140,13 @@ snapshots:
 
   '@babel/compat-data@7.25.2': {}
 
-  '@babel/core@7.24.9':
+  '@babel/core@7.25.2':
     dependencies:
       '@ampproject/remapping': 2.3.0
       '@babel/code-frame': 7.24.7
       '@babel/generator': 7.25.0
       '@babel/helper-compilation-targets': 7.25.2
-      '@babel/helper-module-transforms': 7.25.2(@babel/core@7.24.9)
+      '@babel/helper-module-transforms': 7.25.2(@babel/core@7.25.2)
       '@babel/helpers': 7.25.0
       '@babel/parser': 7.25.3
       '@babel/template': 7.25.0
@@ -2160,9 +2160,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/eslint-parser@7.25.0(@babel/core@7.24.9)(eslint@8.57.0)':
+  '@babel/eslint-parser@7.25.1(@babel/core@7.25.2)(eslint@8.57.0)':
     dependencies:
-      '@babel/core': 7.24.9
+      '@babel/core': 7.25.2
       '@nicolo-ribaudo/eslint-scope-5-internals': 5.1.1-v1
       eslint: 8.57.0
       eslint-visitor-keys: 2.1.0
@@ -2190,9 +2190,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@babel/helper-module-transforms@7.25.2(@babel/core@7.24.9)':
+  '@babel/helper-module-transforms@7.25.2(@babel/core@7.25.2)':
     dependencies:
-      '@babel/core': 7.24.9
+      '@babel/core': 7.25.2
       '@babel/helper-module-imports': 7.24.7
       '@babel/helper-simple-access': 7.24.7
       '@babel/helper-validator-identifier': 7.24.7
