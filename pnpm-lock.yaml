@@ -36,8 +36,8 @@ importers:
         specifier: 17.12.0
         version: 17.12.0(eslint@8.57.1)
       eslint-plugin-sort-class-members:
-        specifier: 1.20.0
-        version: 1.20.0(eslint@8.57.1)
+        specifier: 1.21.0
+        version: 1.21.0(eslint@8.57.1)
     devDependencies:
       '@babel/core':
         specifier: 7.26.0
@@ -897,8 +897,8 @@ packages:
     peerDependencies:
       eslint: '>=8.23.0'
 
-  eslint-plugin-sort-class-members@1.20.0:
-    resolution: {integrity: sha512-xNaik4GQ/pRwd1soIVI28HEXZbrWoLR5krau2+E8YcHj7N09UviPg5mYhf/rELG29bIFJdXDOFJazN90+luMOw==}
+  eslint-plugin-sort-class-members@1.21.0:
+    resolution: {integrity: sha512-QKV4jvGMu/ge1l4s1TUBC6rqqV/fbABWY7q2EeNpV3FRikoX6KuLhiNvS8UuMi+EERe0hKGrNU9e6ukFDxNnZQ==}
     engines: {node: '>=4.0.0'}
     peerDependencies:
       eslint: '>=0.8.0'
@@ -3073,7 +3073,7 @@ snapshots:
       minimatch: 9.0.5
       semver: 7.6.3
 
-  eslint-plugin-sort-class-members@1.20.0(eslint@8.57.1):
+  eslint-plugin-sort-class-members@1.21.0(eslint@8.57.1):
     dependencies:
       eslint: 8.57.1
 
