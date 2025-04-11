@@ -1,10 +1,9 @@
-/* eslint max-classes-per-file: 0 */
+/* eslint max-classes-per-file: 0, no-unused-vars: off */
 
 // func-names
 (function() { return true; })();
 
 // function-paren-newline
-/* eslint-disable no-unused-vars */
 function functionParenNewlineA(arg1,
   arg2,
   arg3
@@ -17,15 +16,8 @@ function functionParenNewlineB(arg1, arg2,
 ) {
   return true;
 }
-/* eslint-enable no-unused-vars */
-
-// line-comment-position
-/* eslint-disable no-inline-comments */
-(() => true)(); // invalid comment
-/* eslint-enable no-inline-comments */
 
 // lines-between-class-members
-/* eslint-disable no-unused-vars */
 class LinesBetweenClassMembers {
   memberA() {
     return this;
@@ -35,7 +27,6 @@ class LinesBetweenClassMembers {
   }
   memberC() { return this; }
 }
-/* eslint-enable no-unused-vars */
 
 // newline-per-chained-call
 /* eslint-disable no-undef */
@@ -45,7 +36,6 @@ class LinesBetweenClassMembers {
 /* eslint-enable no-undef */
 
 // object-curly-newline
-/* eslint-disable no-unused-vars */
 (() => {
   const objectCurlyNewlineA = {propA: {},
           propB: {},
@@ -56,10 +46,8 @@ class LinesBetweenClassMembers {
           propB: {},
           propC: {}};
 })();
-/* eslint-enable no-unused-vars */
 
 // grouped-accessor-pairs
-/* eslint-disable no-unused-vars */
 class GroupedAccessorPairs {
   get aaa() {
     return this.aaa;
@@ -73,17 +61,14 @@ class GroupedAccessorPairs {
     this.aaa = value;
   }
 }
-/* eslint-enable no-unused-vars */
 
 // no-constructor-return
-/* eslint-disable no-unused-vars */
 class NoConstructorReturn {
   constructor(value) {
     this.value = value;
     return true;
   }
 }
-/* eslint-enable no-unused-vars */
 
 // no-dupe-else-if
 (() => {
@@ -99,7 +84,6 @@ class NoConstructorReturn {
 })();
 
 // no-setter-return
-/* eslint-disable no-unused-vars */
 class NoSetterReturn {
   get aa() {
     return this.value;
@@ -110,14 +94,13 @@ class NoSetterReturn {
     return value;
   }
 }
-/* eslint-enable no-unused-vars */
 
 // prefer-exponentiation-operator
-/* eslint-disable no-unused-vars, no-magic-numbers */
+/* eslint-disable no-magic-numbers */
 (() => {
   const result = Math.pow(2, 2);
 })();
-/* eslint-enable no-unused-vars, no-magic-numbers */
+/* eslint-enable no-magic-numbers */
 
 // default-case-last
 (() => {
@@ -132,6 +115,9 @@ class NoSetterReturn {
 })();
 
 // no-useless-backreference
-/* eslint-disable no-unused-vars, prefer-named-capture-group */
+/* eslint-disable prefer-named-capture-group */
 const noUselessBackreference = /(\1)/;
-/* eslint-enable no-unused-vars, prefer-named-capture-group */
+/* eslint-enable prefer-named-capture-group */
+
+// unused disable directives
+// eslint-disable-line no-magic-numbers

@@ -26,6 +26,7 @@ module.exports = class Hoge {
   }
 
   _instancePrivateMethod() {
-    return this._instancePrivateProps; // eslint-disable-line no-underscore-dangle
+    // eslint-disable-next-line no-underscore-dangle
+    return this._instancePrivateProps;
   }
 };
