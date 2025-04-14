@@ -15,20 +15,16 @@ import configs from './index.js';
  * @type {import('eslint').Linter.Config[]}
  */
 export default [
+  // for lib
   ...configs.map((cfg) => {
     return {
-      files: ['**/*.js', '!test/fixture/*.js'],
+      files: ['*.js', 'lib/**/*.js', 'test/lib/**/*.js', '**/*.test.js'],
       ...cfg
     };
   }),
   {
-    files: ['**/*.js', '!test/fixture/*.js'],
-    ...prettierConfig
-  },
-
-  // for lib
-  {
     files: ['*.js', 'lib/**/*.js', 'test/lib/**/*.js', '**/*.test.js'],
+    ...prettierConfig,
     ...nodeConfig,
     rules: {
       ...nodeConfig.rules,
