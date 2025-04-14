@@ -1,3 +1,1 @@
-module.exports = {
-  extends: ['prettier']
-};
+export { default } from 'eslint-config-prettier';

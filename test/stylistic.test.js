@@ -1,15 +1,26 @@
-const assert = require('assert');
-const path = require('path');
-const { findRules, runLint, validateConfig } = require('./lib');
+import assert from 'node:assert';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { calculateConfig, findRules, runLint } from './lib/index.js';
 
-const configFile = path.resolve(__dirname, '../lib/stylistic.js');
+const DEBUG = Boolean(process.env.DEBUG);
 
-describe('stylistic', () => {
+describe('lib/stylistic', () => {
+  let dirname = null;
+  let configFile = null;
+
+  before(() => {
+    dirname = path.dirname(fileURLToPath(import.meta.url));
+    configFile = path.resolve(dirname, '../lib/stylistic.js');
+  });
+
   it('should be valid.', async () => {
     let err = null;
 
     try {
-      const config = await validateConfig(configFile);
+      const config = await calculateConfig([
+        (await import(configFile)).default
+      ]);
 
       assert(config);
     } catch (error) {
@@ -24,6 +35,10 @@ describe('stylistic', () => {
       filterPrefix: /^@stylistic\//
     });
 
+    if (DEBUG) {
+      console.log(rules);
+    }
+
     assert(Array.isArray(rules));
     assert.deepEqual(rules, []);
   });
@@ -33,39 +48,55 @@ describe('stylistic', () => {
       filterPrefix: /^@stylistic\//
     });
 
+    if (DEBUG) {
+      console.log(rules);
+    }
+
     assert(Array.isArray(rules));
     assert.deepEqual(rules, []);
   });
 
   it('should has no errors and no warnings in stylistic.valid.js', async () => {
-    const file = path.resolve(__dirname, './fixture/stylistic.valid.js');
+    const file = path.resolve(dirname, './fixture/stylistic.valid.js');
     const results = await runLint(file, configFile, {
       overrideConfig: {
-        parserOptions: {
-          ecmaVersion: 'latest',
-          ecmaFeatures: {
-            jsx: true
+        languageOptions: {
+          parserOptions: {
+            ecmaVersion: 'latest',
+            ecmaFeatures: {
+              jsx: true
+            }
           }
         }
       }
     });
+
+    if (DEBUG) {
+      console.log(results);
+    }
 
     assert.deepEqual(results.errors, []);
     assert.deepEqual(results.warnings, []);
   });
 
   it('should has some errors and warnings in stylistic.invalid.js', async () => {
-    const file = path.resolve(__dirname, './fixture/stylistic.invalid.js');
+    const file = path.resolve(dirname, './fixture/stylistic.invalid.js');
     const results = await runLint(file, configFile, {
       overrideConfig: {
-        parserOptions: {
-          ecmaVersion: 'latest',
-          ecmaFeatures: {
-            jsx: true
+        languageOptions: {
+          parserOptions: {
+            ecmaVersion: 'latest',
+            ecmaFeatures: {
+              jsx: true
+            }
           }
         }
       }
     });
+
+    if (DEBUG) {
+      console.log(results);
+    }
 
     assert.deepEqual(results.errors, [
       '@stylistic/function-paren-newline',

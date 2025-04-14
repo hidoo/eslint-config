@@ -7,7 +7,7 @@ Shareable config for ESlint.
 ## Installation
 
 ```sh
-$ npm install --save-dev eslint @hidoo/eslint-config
+npm install --save-dev eslint @hidoo/eslint-config
 ```
 
 ## Usage
@@ -15,75 +15,88 @@ $ npm install --save-dev eslint @hidoo/eslint-config
 ### basic
 
 ```js
-module.exports = {
-  extends: ['@hidoo/eslint-config']
-};
+import configs from '@hidoo/eslint-config';
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [...configs];
 ```
 
 ### with @babel/eslint-parser
 
 ```js
-module.exports = {
-  extends: ['@hidoo/eslint-config', '@hidoo/eslint-config/+babel']
-};
+import configs from '@hidoo/eslint-config';
+import babelConfig from '@hidoo/eslint-config/+babel';
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [...configs, babelConfig];
 ```
 
 ### with ESLint Stylistic
 
 ```js
-module.exports = {
-  extends: ['@hidoo/eslint-config', '@hidoo/eslint-config/+stylistic']
-};
+import configs from '@hidoo/eslint-config';
+import stylisticConfig from '@hidoo/eslint-config/+stylistic';
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [...configs, stylisticConfig];
 ```
 
 ### with Prettier
 
 ```js
-module.exports = {
-  extends: ['@hidoo/eslint-config', '@hidoo/eslint-config/+prettier']
-};
+import configs from '@hidoo/eslint-config';
+import prettierConfig from '@hidoo/eslint-config/+prettier';
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [...configs, prettierConfig];
 ```
 
 ### with compatibility check
 
 ```js
-module.exports = {
-  extends: ['@hidoo/eslint-config', '@hidoo/eslint-config/+compatibility']
-};
+import configs from '@hidoo/eslint-config';
+import compatibilityConfig from '@hidoo/eslint-config/+compatibility';
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [...configs, compatibilityConfig];
 ```
 
 ### for Mocha
 
 ```js
-module.exports = {
-  extends: ['@hidoo/eslint-config'],
-  overrides: [
-    {
-      files: ['**/*.test.js'],
-      extends: ['@hidoo/eslint-config/+mocha']
-    }
-  ]
-};
+import configs from '@hidoo/eslint-config';
+import mochaConfig from '@hidoo/eslint-config/+mocha';
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  ...configs,
+  {
+    files: ['**/*.test.js'],
+    ...mochaConfig
+  }
+];
 ```
 
 ### for Node
 
 ```js
-module.exports = {
-  extends: ['@hidoo/eslint-config'],
-  overrides: [
-    {
-      files: ['path/to/**/*.js'],
-      extends: ['@hidoo/eslint-config/+node']
-    }
-  ]
-};
+import configs from '@hidoo/eslint-config';
+import nodeConfig from '@hidoo/eslint-config/+node';
+
+/** @type {import('eslint').Linter.Config[]} */
+export default [
+  ...configs,
+  {
+    files: ['**/*.test.js'],
+    ...nodeConfig
+  }
+];
 ```
 
 ## Test
 
 ```sh
-$ pnpm test
+pnpm test
 ```
 
 ## License

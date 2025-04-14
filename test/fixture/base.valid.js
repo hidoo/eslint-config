@@ -72,3 +72,5 @@ class NoSetterReturn {
 
 // no-useless-backreference
 const noUselessBackreference = /\1/;
+
+// unused disable directives

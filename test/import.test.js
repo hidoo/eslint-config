@@ -1,15 +1,26 @@
-const assert = require('assert');
-const path = require('path');
-const { findRules, runLint, validateConfig } = require('./lib');
+import assert from 'node:assert';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { calculateConfig, findRules, runLint } from './lib/index.js';
 
-const configFile = path.resolve(__dirname, '../lib/import.js');
+const DEBUG = Boolean(process.env.DEBUG);
 
-describe('import', () => {
+describe('lib/import', () => {
+  let dirname = null;
+  let configFile = null;
+
+  before(() => {
+    dirname = path.dirname(fileURLToPath(import.meta.url));
+    configFile = path.resolve(dirname, '../lib/import.js');
+  });
+
   it('should be valid.', async () => {
     let err = null;
 
     try {
-      const config = await validateConfig(configFile);
+      const config = await calculateConfig([
+        (await import(configFile)).default
+      ]);
 
       assert(config);
     } catch (error) {
@@ -24,6 +35,10 @@ describe('import', () => {
       filterPrefix: /^import\//
     });
 
+    if (DEBUG) {
+      console.log(rules);
+    }
+
     assert(Array.isArray(rules));
     assert.deepEqual(rules, []);
   });
@@ -33,19 +48,29 @@ describe('import', () => {
       filterPrefix: /^import\//
     });
 
+    if (DEBUG) {
+      console.log(rules);
+    }
+
     assert(Array.isArray(rules));
     assert.deepEqual(rules, []);
   });
 
   it('should has some errors and warnings in import.invalid.js', async () => {
-    const file = path.resolve(__dirname, './fixture/import.invalid.js');
+    const file = path.resolve(dirname, './fixture/import.invalid.js');
     const results = await runLint(file, configFile, {
       overrideConfig: {
-        parserOptions: {
-          ecmaVersion: 'latest'
+        languageOptions: {
+          parserOptions: {
+            ecmaVersion: 'latest'
+          }
         }
       }
     });
+
+    if (DEBUG) {
+      console.log(results);
+    }
 
     assert.deepEqual(results.errors, [
       'import/no-absolute-path',

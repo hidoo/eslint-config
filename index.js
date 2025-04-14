@@ -1,14 +1,11 @@
-const path = require('path');
-const { env, parserOptions } = require('./lib/base');
+import baseConfig from './lib/base.js';
+import importConfig from './lib/import.js';
+import jsdocConfig from './lib/jsdoc.js';
+import sortClassMembersConfig from './lib/sort-class-members.js';
 
-module.exports = {
-  env,
-  parserOptions,
-  extends: [
-    path.resolve(__dirname, 'lib', 'base.js'),
-    path.resolve(__dirname, 'lib', 'eslint-comments.js'),
-    path.resolve(__dirname, 'lib', 'import.js'),
-    path.resolve(__dirname, 'lib', 'jsdoc.js'),
-    path.resolve(__dirname, 'lib', 'sort-class-members.js')
-  ]
-};
+/**
+ * main config
+ *
+ * @type {import('eslint').Linter.Config[]}
+ */
+export default [baseConfig, importConfig, jsdocConfig, sortClassMembersConfig];

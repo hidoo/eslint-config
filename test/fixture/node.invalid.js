@@ -2,14 +2,12 @@ const fs = require('fs');
 const path = require('path');
 
 // n/no-callback-literal
-/* eslint-disable no-undef */
 noCallbackLiteral((error, cb) => {
   if (error) {
     return cb(error);
   }
   return cb('aaaa');
 });
-/* eslint-enable no-undef */
 
 // n/exports-style
 exports.hoge = () => true;
@@ -24,13 +22,11 @@ exports.hoge = () => true;
 // n/prefer-global/text-encoder
 // n/prefer-global/url-search-params
 // n/prefer-global/url
-/* eslint-disable no-unused-vars */
 const {Buffer} = require('buffer'),
       console = require('console'),
       process = require('process'),
       {TextDecoder, TextEncoder} = require('util'),
       {URLSearchParams, URL} = require('url')
-/* eslint-enable no-unused-vars */
 
 // n/callback-return
 const callbackReturn = (error, callback) => {
@@ -41,11 +37,9 @@ const callbackReturn = (error, callback) => {
 };
 
 // n/global-require
-/* eslint-disable no-undef */
 if (DEBUG) {
   const globalRequire = require('global-require');
 }
-/* eslint-enable no-undef */
 
 // n/handle-callback-err
 const handleCallbackErr = (error, callback) => {
@@ -67,11 +61,9 @@ const noPathConcatFilename = __filename + '/no-path-concat.js';
 const noProcessEnv = process.env.NO_PROCESS_ENV === 'invalid';
 
 // n/no-process-exit
-/* eslint-disable no-undef, no-process-exit */
 if (noProcessExit) {
   process.exit(1);
 }
-/* eslint-enable no-undef, no-process-exit */
 
 // n/no-sync
 fs.statSync('/path/to/no-sync');

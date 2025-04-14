@@ -1,15 +1,26 @@
-const assert = require('assert');
-const path = require('path');
-const { findRules, runLint, validateConfig } = require('./lib');
+import assert from 'node:assert';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { calculateConfig, findRules, runLint } from './lib/index.js';
 
-const configFile = path.resolve(__dirname, '../lib/node.js');
+const DEBUG = Boolean(process.env.DEBUG);
 
-describe('node', () => {
+describe('lib/node', () => {
+  let dirname = null;
+  let configFile = null;
+
+  before(() => {
+    dirname = path.dirname(fileURLToPath(import.meta.url));
+    configFile = path.resolve(dirname, '../lib/node.js');
+  });
+
   it('should be valid.', async () => {
     let err = null;
 
     try {
-      const config = await validateConfig(configFile);
+      const config = await calculateConfig([
+        (await import(configFile)).default
+      ]);
 
       assert(config);
     } catch (error) {
@@ -24,6 +35,10 @@ describe('node', () => {
       filterPrefix: /^node\//
     });
 
+    if (DEBUG) {
+      console.log(rules);
+    }
+
     assert(Array.isArray(rules));
     assert.deepEqual(rules, []);
   });
@@ -33,21 +48,61 @@ describe('node', () => {
       filterPrefix: /^node\//
     });
 
+    if (DEBUG) {
+      console.log(rules);
+    }
+
     assert(Array.isArray(rules));
     assert.deepEqual(rules, []);
   });
 
   it('should has no errors and no warnings in node.valid.js', async () => {
-    const file = path.resolve(__dirname, './fixture/node.valid.js');
-    const results = await runLint(file, configFile);
+    const file = path.resolve(dirname, './fixture/node.valid.js');
+    const results = await runLint(file, configFile, {
+      overrideConfig: {
+        languageOptions: {
+          ecmaVersion: 'latest',
+          sourceType: 'commonjs',
+          globals: {
+            __dirname: 'readonly',
+            __filename: 'readonly',
+            exports: 'writable',
+            module: 'readonly',
+            require: 'readonly'
+          }
+        }
+      }
+    });
+
+    if (DEBUG) {
+      console.log(results);
+    }
 
     assert.deepEqual(results.errors, []);
     assert.deepEqual(results.warnings, []);
   });
 
   it('should has some errors and warnings in node.invalid.js', async () => {
-    const file = path.resolve(__dirname, './fixture/node.invalid.js');
-    const results = await runLint(file, configFile);
+    const file = path.resolve(dirname, './fixture/node.invalid.js');
+    const results = await runLint(file, configFile, {
+      overrideConfig: {
+        languageOptions: {
+          ecmaVersion: 'latest',
+          sourceType: 'commonjs',
+          globals: {
+            __dirname: 'readonly',
+            __filename: 'readonly',
+            exports: 'writable',
+            module: 'readonly',
+            require: 'readonly'
+          }
+        }
+      }
+    });
+
+    if (DEBUG) {
+      console.log(results);
+    }
 
     assert.deepEqual(results.errors, [
       'n/no-callback-literal',

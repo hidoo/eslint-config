@@ -1,4 +1,4 @@
-const getRuleFinder = require('eslint-find-rules');
+import getRuleFinder from 'eslint-find-rules';
 
 /**
  * default options
@@ -18,12 +18,12 @@ const defaultOptions = {
  * @param {String|RegExp} options.filterPrefix filter prefix
  * @return {Promise<Array>} list of ruleIds
  */
-module.exports = async function findRules(
+export async function findRules(
   type = 'deprecated',
   configFile = '',
   options = {}
 ) {
-  const ruleFinder = await getRuleFinder(configFile);
+  const ruleFinder = await getRuleFinder(configFile, { useFlatConfig: true });
   const { filterPrefix } = Object.assign(defaultOptions, options);
   let rules = [];
 
@@ -41,4 +41,4 @@ module.exports = async function findRules(
     return rules.filter((rule) => rule.indexOf(filterPrefix) === 0); // eslint-disable-line no-magic-numbers
   }
   return rules;
-};
+}

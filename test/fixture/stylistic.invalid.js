@@ -1,5 +1,4 @@
 // function-paren-newline
-/* eslint-disable no-unused-vars */
 function functionParenNewlineA(arg1,
   arg2,
   arg3
@@ -12,10 +11,8 @@ function functionParenNewlineB(arg1, arg2,
 ) {
   return true;
 }
-/* eslint-enable no-unused-vars */
 
 // lines-between-class-members
-/* eslint-disable no-unused-vars */
 class LinesBetweenClassMembers {
   memberA() {
     return this;
@@ -25,17 +22,13 @@ class LinesBetweenClassMembers {
   }
   memberC() { return this; }
 }
-/* eslint-enable no-unused-vars */
 
 // newline-per-chained-call
-/* eslint-disable no-undef */
 (() => {
   newlinePerChainedCall.mathodA().methodB().methodC();
 })();
-/* eslint-enable no-undef */
 
 // object-curly-newline
-/* eslint-disable no-unused-vars */
 (() => {
   const objectCurlyNewlineA = {propA: {},
           propB: {},
@@ -46,7 +39,6 @@ class LinesBetweenClassMembers {
           propB: {},
           propC: {}};
 })();
-/* eslint-enable no-unused-vars */
 
 /**
  * example of @stylistic/jsx-function-call-newline
