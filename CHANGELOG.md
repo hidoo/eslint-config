@@ -1,3 +1,17 @@
+# [2.0.0](https://github.com/hidoo/eslint-config/compare/v2.0.0-beta.0...v2.0.0) (2025-04-16)
+
+
+### Bug Fixes
+
+* **deps:** update dependency @stylistic/eslint-plugin to v4 ([44284e0](https://github.com/hidoo/eslint-config/commit/44284e09092cbd6a75a95d007055aa7069a8ce1f))
+
+
+### Features
+
+* change globals to be importable as named export ([20596ed](https://github.com/hidoo/eslint-config/commit/20596ed5b744657c60b7b1d32b11ef5ef88303a6))
+
+
+
 # [2.0.0-beta.0](https://github.com/hidoo/eslint-config/compare/v1.3.1...v2.0.0-beta.0) (2025-04-14)
 
 
