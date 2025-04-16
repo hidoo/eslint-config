@@ -17,6 +17,15 @@ describe('@hidoo/eslint-config', () => {
     assert(require.resolve('@hidoo/eslint-config'));
   });
 
+  describe('globals', () => {
+    it('should be importable as named export.', async () => {
+      assert.deepEqual(
+        (await import('../index.js')).globals,
+        (await import('globals')).default
+      );
+    });
+  });
+
   describe('+babel', () => {
     it('should be importable.', () => {
       assert(require.resolve('@hidoo/eslint-config/+babel'));
