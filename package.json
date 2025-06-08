@@ -48,7 +48,7 @@
     "eslint-config"
   ],
   "dependencies": {
-    "@babel/eslint-parser": "7.27.1",
+    "@babel/eslint-parser": "7.27.5",
     "@eslint/js": "9.27.0",
     "@stylistic/eslint-plugin": "4.4.0",
     "eslint-config-prettier": "10.1.5",
@@ -61,7 +61,7 @@
     "globals": "16.2.0"
   },
   "devDependencies": {
-    "@babel/core": "7.27.1",
+    "@babel/core": "7.27.4",
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "conventional-changelog-cli": "5.0.0",
