@@ -2,10 +2,10 @@
   "name": "@hidoo/eslint-config",
   "version": "2.0.0",
   "description": "Shareable config for ESlint.",
-  "packageManager": "pnpm@10.17.1",
+  "packageManager": "pnpm@10.18.0",
   "engines": {
     "node": ">=18.0.0",
-    "pnpm": "10.17.1"
+    "pnpm": "10.18.0"
   },
   "type": "module",
   "main": "index.js",
@@ -70,7 +70,7 @@
     "eslint-find-rules": "5.0.0",
     "lint-staged": "15.5.0",
     "mocha": "11.7.4",
-    "pnpm": "10.17.1",
+    "pnpm": "10.18.0",
     "prettier": "3.6.2"
   },
   "peerDependencies": {
