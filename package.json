@@ -61,7 +61,7 @@
     "globals": "16.5.0"
   },
   "devDependencies": {
-    "@babel/core": "7.28.5",
+    "@babel/core": "7.29.6",
     "@commitlint/cli": "19.8.0",
     "@commitlint/config-conventional": "19.8.0",
     "conventional-changelog-cli": "5.0.0",
