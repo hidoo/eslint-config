@@ -33,8 +33,8 @@ importers:
         specifier: 10.5.0
         version: 10.5.0(eslint@9.39.5(jiti@2.6.1))
       eslint-plugin-n:
-        specifier: 17.23.1
-        version: 17.23.1(eslint@9.39.5(jiti@2.6.1))(typescript@6.0.3)
+        specifier: 17.24.0
+        version: 17.24.0(eslint@9.39.5(jiti@2.6.1))(typescript@6.0.3)
       eslint-plugin-sort-class-members:
         specifier: 1.22.1
         version: 1.22.1(eslint@9.39.5(jiti@2.6.1))
@@ -929,8 +929,8 @@ packages:
     peerDependencies:
       eslint: '>=7.0.0'
 
-  eslint-plugin-n@17.23.1:
-    resolution: {integrity: sha512-68PealUpYoHOBh332JLLD9Sj7OQUDkFpmcfqt8R9sySfFSeuGJjMTJQvCRRB96zO3A/PELRLkPrzsHmzEFQQ5A==}
+  eslint-plugin-n@17.24.0:
+    resolution: {integrity: sha512-/gC7/KAYmfNnPNOb3eu8vw+TdVnV0zhdQwexsw6FLXbhzroVj20vRn2qL8lDWDGnAQ2J8DhdfvXxX9EoxvERvw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
     peerDependencies:
       eslint: '>=8.23.0'
@@ -3234,7 +3234,7 @@ snapshots:
       globals: 13.24.0
       rambda: 7.5.0
 
-  eslint-plugin-n@17.23.1(eslint@9.39.5(jiti@2.6.1))(typescript@6.0.3):
+  eslint-plugin-n@17.24.0(eslint@9.39.5(jiti@2.6.1))(typescript@6.0.3):
     dependencies:
       '@eslint-community/eslint-utils': 4.10.1(eslint@9.39.5(jiti@2.6.1))
       enhanced-resolve: 5.24.5
